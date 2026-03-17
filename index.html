@@ -4,51 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YV.india | Official Store</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root { --gold: #D4AF37; --black: #050505; --dark-grey: #1a1a1a; --card-bg: #111; --text: #f4f4f4; --white: #ffffff; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--black); color: var(--text); }
+        
+        /* Navigation & Search */
         nav { background: var(--black); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
-        .nav-brand-link { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 25px; transition: 0.3s; }
-        .nav-brand-link:hover { background: var(--gold); color: black; }
+        .nav-brand-link { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 25px; transition: 0.3s; letter-spacing: 1px; }
+        .nav-brand-link:hover { background: var(--gold); color: black; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
+        
+        .search-container { flex-grow: 1; max-width: 400px; margin: 0 30px; position: relative; }
+        .search-bar { width: 100%; padding: 10px 15px; border-radius: 25px; border: 1px solid #444; background: #222; color: white; font-family: 'Montserrat', sans-serif; box-sizing: border-box; outline: none; transition: 0.3s; }
+        .search-bar:focus { border-color: var(--gold); background: #111; }
+        
         .cart-trigger { color: var(--gold); cursor: pointer; font-size: 24px; position: relative; transition: 0.3s; }
+        .cart-trigger:hover { transform: scale(1.1); }
         #cart-count { position: absolute; top: -8px; right: -12px; background: white; color: black; border-radius: 50%; padding: 2px 7px; font-size: 11px; font-weight: 800; }
-        .hero { background: linear-gradient(135deg, #000 0%, #111 100%); height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; border-bottom: 3px solid var(--gold); }
-        .hero img { height: 180px; margin-bottom: 20px; z-index: 2; }
-        .hero h1 { font-size: 42px; color: var(--gold); margin: 0; font-weight: 800; text-transform: uppercase; }
-        .category-bar { display: flex; justify-content: center; gap: 40px; padding: 20px; background: var(--dark-grey); border-bottom: 1px solid #333; }
-        .category-bar a { font-weight: 700; font-size: 12px; color: var(--gold); text-transform: uppercase; text-decoration: none; transition: 0.3s; }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #000 0%, #111 100%); height: 450px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; border-bottom: 3px solid var(--gold); position: relative; overflow: hidden; }
+        .hero::after { content: ''; position: absolute; width: 200%; height: 100%; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(0,0,0,0) 70%); top: -50%; left: -50%; pointer-events: none; }
+        .hero img { height: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.3)); z-index: 2; }
+        .hero h1 { font-size: 42px; color: var(--gold); margin: 0; letter-spacing: 4px; font-weight: 800; text-transform: uppercase; z-index: 2; }
+
+        /* Category Bar */
+        .category-bar { display: flex; justify-content: center; gap: 40px; padding: 20px; background: var(--dark-grey); border-bottom: 1px solid #333; flex-wrap: wrap; }
+        .category-bar a { font-weight: 700; font-size: 12px; color: var(--gold); text-transform: uppercase; text-decoration: none; letter-spacing: 1px; transition: 0.3s; }
         .category-bar a:hover { color: var(--white); }
-        .section-title { text-align: center; margin-top: 60px; font-size: 28px; font-weight: 800; text-transform: uppercase; border-bottom: 3px solid var(--gold); display: inline-block; width: 100%; padding-bottom: 15px; color: var(--text); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 50px 8%; }
-        .card { background: var(--card-bg); border-radius: 12px; padding: 30px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid #333; transition: 0.3s; }
-        .card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
-        .card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; background-color: var(--white); border-radius: 8px; padding: 15px; box-sizing: border-box; }
+        
+        /* Product Grid */
+        .section-title { text-align: center; margin-top: 60px; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; border-bottom: 3px solid var(--gold); display: inline-block; width: 100%; padding-bottom: 15px; color: var(--text); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 50px 8%; background-color: var(--black); }
+        
+        /* Cards */
+        .card { background: var(--card-bg); border-radius: 12px; padding: 30px; text-align: center; transition: all 0.4s ease; display: flex; flex-direction: column; justify-content: space-between; height: 100%; border: 1px solid #333; position: relative; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-color: var(--gold); }
+        .card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; background-color: var(--white); border-radius: 8px; padding: 15px; box-sizing: border-box; transition: 0.4s; }
+        .card:hover img { transform: scale(1.03); }
+        
+        /* Bestseller Badge */
+        .badge { position: absolute; top: 15px; right: -10px; background: var(--gold); color: black; font-size: 10px; font-weight: 800; padding: 5px 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; }
+        
+        .card h3 { font-size: 18px; margin: 0 0 10px 0; font-weight: 700; color: var(--text); }
         .specs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 15px; }
-        .spec-badge { background: #333; color: var(--gold); font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+        .spec-badge { background: #333; color: var(--gold); font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         .price { font-size: 28px; font-weight: 800; margin: 15px 0; color: var(--text); }
-        .add-btn { background: var(--card-bg); color: var(--gold); padding: 14px; border-radius: 6px; font-weight: 700; text-transform: uppercase; border: 2px solid var(--gold); cursor: pointer; transition: 0.3s; }
+        
+        .add-btn { background: var(--card-bg); color: var(--gold); padding: 14px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 14px; border: 2px solid var(--gold); cursor: pointer; width: 100%; transition: 0.3s; letter-spacing: 1px; }
         .add-btn:hover { background: var(--gold); color: black; }
-        #checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(5px); }
-        .modal-content { background: #222; border: 1px solid #444; color: var(--text); width: 95%; max-width: 550px; margin: 20px auto; padding: 35px; border-radius: 16px; max-height: 90vh; overflow-y: auto; }
-        .cart-item-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #444; }
-        .total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 24px; border-top: 3px solid var(--gold); padding-top: 15px; margin-top: 10px; }
-        input { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid #444; border-radius: 6px; background-color: #333; color: var(--text); font-family: 'Montserrat', sans-serif; }
-        .warning-text { background: #fff1f0; border: 1px solid #ffa39e; color: #cf1322; padding: 12px; margin-top: 20px; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: center; }
-        .float-wa { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; font-weight: bold; text-decoration: none; display: flex; align-items: center; z-index: 1500; font-size: 14px; }
-        #toast { visibility: hidden; min-width: 250px; background-color: var(--gold); color: black; text-align: center; border-radius: 6px; padding: 16px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: bold; opacity: 0; transition: 0.5s; }
+
+        /* Checkout Modal - Detailed GST Invoice Style */
+        #checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(5px); overflow-y: auto; }
+        .modal-content { background: #1a1a1a; border: 1px solid #444; color: var(--text); width: 95%; max-width: 550px; margin: 40px auto; padding: 35px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #333; font-weight: 500; font-size: 14px; }
+        
+        .invoice-details { background: #111; padding: 20px; border-radius: 8px; margin-top: 15px; border: 1px solid #333; }
+        .summary-row { display: flex; justify-content: space-between; font-size: 14px; color: #aaa; margin-bottom: 8px; }
+        .total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 22px; border-top: 1px solid #444; padding-top: 15px; margin-top: 10px; color: var(--gold); }
+        
+        input { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid #444; border-radius: 6px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-size: 14px; background-color: #222; color: var(--text); outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--gold); }
+        
+        .warning-text { background: rgba(207, 19, 34, 0.1); border: 1px solid #cf1322; color: #ff4d4d; padding: 12px; margin-top: 20px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; text-transform: uppercase; }
+        .cod-badge { background: #222; padding: 12px; border-radius: 6px; font-size: 12px; color: var(--gold); font-weight: 800; text-align: center; letter-spacing: 1px; border: 1px dashed var(--gold); margin-bottom: 20px; }
+
+        /* Floating Utilities */
+        .float-wa { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; font-weight: bold; text-decoration: none; display: flex; align-items: center; z-index: 1500; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: 0.3s; }
+        .float-wa:hover { transform: translateY(-5px); }
+        
+        #toast { visibility: hidden; min-width: 250px; background-color: var(--gold); color: black; text-align: center; border-radius: 6px; padding: 16px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: bold; opacity: 0; transition: 0.5s; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
+
         footer { background: var(--black); color: white; padding: 60px 20px; text-align: center; border-top: 1px solid #333; }
+        footer p { margin: 5px 0; font-size: 13px; color: #888; }
     </style>
 </head>
 <body>
 
     <a href="https://wa.me/919327678853?text=Hi,%20I%20have%20a%20question!" class="float-wa" target="_blank">💬 Chat with us</a>
-    <div id="toast">Item added to cart!</div>
+    
+    <div id="toast">Item added!</div>
 
     <nav>
         <a href="https://linktr.ee/heena_electronics.pvt.ltd" class="nav-brand-link" target="_blank">SOCIALS</a>
+        
+        <div class="search-container">
+            <input type="text" id="search-bar" class="search-bar" placeholder="🔍 Search products..." onkeyup="filterProducts()">
+        </div>
+
         <div class="cart-trigger" onclick="openCheckout()">🛒 <span id="cart-count">0</span></div>
     </nav>
 
@@ -66,117 +113,175 @@
     </div>
 
     <h2 id="tvs" class="section-title">Smart Televisions</h2>
-    <div class="grid">
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-2402</h3><div class="specs-container"><span class="spec-badge">24" Standard</span></div><div class="price">₹6,859</div><button class="add-btn" onclick="addToCart('YV-2402', 6859)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-2402 S</h3><div class="specs-container"><span class="spec-badge">24" Smart</span></div><div class="price">₹8,759</div><button class="add-btn" onclick="addToCart('YV-2402 S', 8759)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-3202S FL</h3><div class="specs-container"><span class="spec-badge">32" Frameless</span></div><div class="price">₹10,415</div><button class="add-btn" onclick="addToCart('YV-3202S FL', 10415)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-3202S GLASS</h3><div class="specs-container"><span class="spec-badge">32" Glass</span></div><div class="price">₹11,093</div><button class="add-btn" onclick="addToCart('YV-3202S Glass', 11093)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-3212S FL</h3><div class="specs-container"><span class="spec-badge">32" Smart Frameless</span></div><div class="price">₹10,890</div><button class="add-btn" onclick="addToCart('YV-3212S FL', 10890)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV 40" LED FL</h3><div class="specs-container"><span class="spec-badge">40" Frameless</span></div><div class="price">₹14,045</div><button class="add-btn" onclick="addToCart('YV 40 LED FL', 14045)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-4212S</h3><div class="specs-container"><span class="spec-badge">42" Smart</span></div><div class="price">₹14,520</div><button class="add-btn" onclick="addToCart('YV-4212S', 14520)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-4302S FL</h3><div class="specs-container"><span class="spec-badge">43" Frameless</span></div><div class="price">₹15,741</div><button class="add-btn" onclick="addToCart('YV-4302S FL', 15741)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-4312S</h3><div class="specs-container"><span class="spec-badge">43" Smart</span></div><div class="price">₹16,216</div><button class="add-btn" onclick="addToCart('YV-4312S', 16216)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-4312SBT</h3><div class="specs-container"><span class="spec-badge">Voice Remote</span></div><div class="price">₹17,031</div><button class="add-btn" onclick="addToCart('YV-4312SBT', 17031)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV-4312S K OS</h3><div class="specs-container"><span class="spec-badge">WebOS</span></div><div class="price">₹18,727</div><button class="add-btn" onclick="addToCart('YV-4312S WebOS', 18727)">Add to Cart</button></div>
-        <div class="card"><img src="YV-TV-Generic.png"><h3>YV 55 TZ-OS</h3><div class="specs-container"><span class="spec-badge">55" Tizen OS</span></div><div class="price">₹28,940</div><button class="add-btn" onclick="addToCart('YV 55 TZ-OS', 28940)">Add to Cart</button></div>
+    <div class="grid" id="product-grid">
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-2402</h3><div class="specs-container"><span class="spec-badge">24" Standard</span></div><div class="price">₹6,859</div><button class="add-btn" onclick="addToCart('YV-2402', 6859)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-2402 S</h3><div class="specs-container"><span class="spec-badge">24" Smart</span></div><div class="price">₹8,759</div><button class="add-btn" onclick="addToCart('YV-2402 S', 8759)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3202S FL</h3><div class="specs-container"><span class="spec-badge">32" Frameless</span></div><div class="price">₹10,415</div><button class="add-btn" onclick="addToCart('YV-3202S FL', 10415)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3202S GLASS</h3><div class="specs-container"><span class="spec-badge">32" Glass</span></div><div class="price">₹11,093</div><button class="add-btn" onclick="addToCart('YV-3202S Glass', 11093)">Add to Cart</button></div>
+        <div class="card product-card"><div class="badge">Bestseller</div><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3212S FL</h3><div class="specs-container"><span class="spec-badge">32" Smart Frameless</span></div><div class="price">₹10,890</div><button class="add-btn" onclick="addToCart('YV-3212S FL', 10890)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV 40" LED FL</h3><div class="specs-container"><span class="spec-badge">40" Frameless</span></div><div class="price">₹14,045</div><button class="add-btn" onclick="addToCart('YV 40 LED FL', 14045)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4212S</h3><div class="specs-container"><span class="spec-badge">42" Smart</span></div><div class="price">₹14,520</div><button class="add-btn" onclick="addToCart('YV-4212S', 14520)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4302S FL</h3><div class="specs-container"><span class="spec-badge">43" Frameless</span></div><div class="price">₹15,741</div><button class="add-btn" onclick="addToCart('YV-4302S FL', 15741)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312S</h3><div class="specs-container"><span class="spec-badge">43" Smart</span></div><div class="price">₹16,216</div><button class="add-btn" onclick="addToCart('YV-4312S', 16216)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312SBT</h3><div class="specs-container"><span class="spec-badge">Voice Remote</span></div><div class="price">₹17,031</div><button class="add-btn" onclick="addToCart('YV-4312SBT', 17031)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312S K OS</h3><div class="specs-container"><span class="spec-badge">WebOS</span></div><div class="price">₹18,727</div><button class="add-btn" onclick="addToCart('YV-4312S WebOS', 18727)">Add to Cart</button></div>
+        <div class="card product-card"><div class="badge">Premium</div><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV 55 TZ-OS</h3><div class="specs-container"><span class="spec-badge">55" Tizen OS</span></div><div class="price">₹28,940</div><button class="add-btn" onclick="addToCart('YV 55 TZ-OS', 28940)">Add to Cart</button></div>
     </div>
 
     <h2 id="speakers" class="section-title">YV Speakers</h2>
     <div class="grid">
-        <div class="card"><img src="YV-PS1202A MAX Party.jpg" onerror="this.src='YV-PS1202A MAX Party.png'"><h3>YV-PS1202A MAX</h3><div class="specs-container"><span class="spec-badge">Dual Mic</span></div><div class="price">₹18,200</div><button class="add-btn" onclick="addToCart('PS1202A MAX', 18200)">Add to Cart</button></div>
-        <div class="card"><img src="party.png"><h3>YV-PS1002A MAX</h3><div class="specs-container"><span class="spec-badge">Multicolour Max</span></div><div class="price">₹14,150</div><button class="add-btn" onclick="addToCart('PS1002A MAX', 14150)">Add to Cart</button></div>
-        <div class="card"><img src="party.png"><h3>YV-PS1002A Party</h3><div class="specs-container"><span class="spec-badge">Party Speaker</span></div><div class="price">₹12,350</div><button class="add-btn" onclick="addToCart('PS1002A Party', 12350)">Add to Cart</button></div>
-        <div class="card"><img src="YV-PS0802A-Party.png"><h3>YV-PS0802A Party</h3><div class="specs-container"><span class="spec-badge">Pink Edition</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('PS0802A Party', 11250)">Add to Cart</button></div>
-        <div class="card"><img src="trolley.png"><h3>YV-TS1501A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501A Trolley', 12500)">Add to Cart</button></div>
-        <div class="card"><img src="trolley.png"><h3>YV-TS1201A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('TS1201A Trolley', 11250)">Add to Cart</button></div>
-        <div class="card"><img src="trolley.png"><h3>YV-TS1201AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,650</div><button class="add-btn" onclick="addToCart('TS1201AF Trolley', 11650)">Add to Cart</button></div>
-        <div class="card"><img src="trolley.png"><h3>YV-TS1501AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501AF Trolley', 12500)">Add to Cart</button></div>
+        <div class="card product-card"><div class="badge">Top Rated</div><img src="YV-PS1202A MAX Party.jpg" onerror="this.src='YV-PS1202A MAX Party.png'"><h3>YV-PS1202A MAX</h3><div class="specs-container"><span class="spec-badge">Dual Mic Yellow</span></div><div class="price">₹18,200</div><button class="add-btn" onclick="addToCart('PS1202A MAX', 18200)">Add to Cart</button></div>
+        <div class="card product-card"><img src="party.png"><h3>YV-PS1002A MAX</h3><div class="specs-container"><span class="spec-badge">Multicolour Max</span></div><div class="price">₹14,150</div><button class="add-btn" onclick="addToCart('PS1002A MAX', 14150)">Add to Cart</button></div>
+        <div class="card product-card"><img src="party.png"><h3>YV-PS1002A Party</h3><div class="specs-container"><span class="spec-badge">Party Speaker</span></div><div class="price">₹12,350</div><button class="add-btn" onclick="addToCart('PS1002A Party', 12350)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-PS0802A-Party.jpg" onerror="this.src='YV-PS0802A-Party.png'"><h3>YV-PS0802A Party</h3><div class="specs-container"><span class="spec-badge">Pink Edition</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('PS0802A Party', 11250)">Add to Cart</button></div>
+        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1501A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501A Trolley', 12500)">Add to Cart</button></div>
+        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1201A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('TS1201A Trolley', 11250)">Add to Cart</button></div>
+        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1201AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,650</div><button class="add-btn" onclick="addToCart('TS1201AF Trolley', 11650)">Add to Cart</button></div>
+        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1501AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501AF Trolley', 12500)">Add to Cart</button></div>
     </div>
 
     <h2 id="soundbars" class="section-title">YV Soundbars</h2>
     <div class="grid">
-        <div class="card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar-w-woofer.jpg'"><h3>YV-TSB5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB5004A W/Woofer', 5000)">Add to Cart</button></div>
-        <div class="card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar-w-woofer.jpg'"><h3>YV-SBS6004A-WL</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹8,450</div><button class="add-btn" onclick="addToCart('SBS6004A-WL W/Woofer', 8450)">Add to Cart</button></div>
-        <div class="card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar-w-woofer.jpg'"><h3>YV-SBS8006A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹10,150</div><button class="add-btn" onclick="addToCart('SBS8006A W/Woofer', 10150)">Add to Cart</button></div>
-        <div class="card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar-w-woofer.jpg'"><h3>YV-SBS5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹7,350</div><button class="add-btn" onclick="addToCart('SBS5004A W/Woofer', 7350)">Add to Cart</button></div>
-        <div class="card"><img src="no-woofer.png" onerror="this.src='no-woofer.jpg'"><h3>YV-TSB6004A-WL</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB6004A-WL No Woofer', 5000)">Add to Cart</button></div>
-        <div class="card"><img src="no-woofer.png" onerror="this.src='no-woofer.jpg'"><h3>YV-TSB8006A</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹6,200</div><button class="add-btn" onclick="addToCart('TSB8006A No Woofer', 6200)">Add to Cart</button></div>
+        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-TSB5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB5004A W/Woofer', 5000)">Add to Cart</button></div>
+        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS6004A-WL</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹8,450</div><button class="add-btn" onclick="addToCart('SBS6004A-WL W/Woofer', 8450)">Add to Cart</button></div>
+        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS8006A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹10,150</div><button class="add-btn" onclick="addToCart('SBS8006A W/Woofer', 10150)">Add to Cart</button></div>
+        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹7,350</div><button class="add-btn" onclick="addToCart('SBS5004A W/Woofer', 7350)">Add to Cart</button></div>
+        <div class="card product-card"><img src="no-woofer.png" onerror="this.src='no woofer.jpg'"><h3>YV-TSB6004A-WL</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB6004A-WL No Woofer', 5000)">Add to Cart</button></div>
+        <div class="card product-card"><img src="no-woofer.png" onerror="this.src='no woofer.jpg'"><h3>YV-TSB8006A</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹6,200</div><button class="add-btn" onclick="addToCart('TSB8006A No Woofer', 6200)">Add to Cart</button></div>
     </div>
 
     <h2 id="cooktops" class="section-title">Appliances</h2>
     <div class="grid">
-        <div class="card"><img src="YV-EK01IND 2000W.jpg"><h3>YV-EK01IND</h3><div class="specs-container"><span class="spec-badge">2000W</span></div><div class="price">₹3,750</div><button class="add-btn" onclick="addToCart('EK01IND 2000W', 3750)">Add to Cart</button></div>
-        <div class="card"><img src="YV-EK07IND-1 1600W.png"><h3>YV-EK07IND-1</h3><div class="specs-container"><span class="spec-badge">1600W</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK07IND-1 1600W', 3380)">Add to Cart</button></div>
-        <div class="card"><img src="YV-EK04INF-1 2000W.png"><h3>YV-EK04INF-1</h3><div class="specs-container"><span class="spec-badge">2000W Infrared</span></div><div class="price">₹3,525</div><button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button></div>
-        <div class="card"><img src="YV-EK08IND-2 1600W.png"><h3>YV-EK08IND-2</h3><div class="specs-container"><span class="spec-badge">1600W</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-EK01IND 2000W.jpg"><h3>YV-EK01IND</h3><div class="specs-container"><span class="spec-badge">2000W Induction</span></div><div class="price">₹3,750</div><button class="add-btn" onclick="addToCart('EK01IND 2000W', 3750)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-EK07IND-1 1600W.png"><h3>YV-EK07IND-1</h3><div class="specs-container"><span class="spec-badge">1600W Induction</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK07IND-1 1600W', 3380)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-EK04INF-1 2000W.png"><h3>YV-EK04INF-1</h3><div class="specs-container"><span class="spec-badge">2000W Infrared</span></div><div class="price">₹3,525</div><button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-EK07IND-1 1600W.png"><h3>YV-EK08IND-2</h3><div class="specs-container"><span class="spec-badge">1600W Compact</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button></div>
     </div>
 
     <div id="checkout-modal">
         <div class="modal-content">
-            <h2 style="margin-top:0; border-bottom: 3px solid var(--gold); padding-bottom: 10px;">Final Bill & Delivery</h2>
+            <h2 style="margin-top:0; border-bottom: 3px solid var(--gold); padding-bottom: 10px; text-transform: uppercase;">GST Invoice & Delivery</h2>
+            
             <div id="cart-items-list" style="margin: 15px 0;"></div>
-            <div class="total-row"><span>Total:</span> <span id="grand-total">₹0</span></div>
-            <p style="background: #333; padding: 12px; border-radius: 6px; color: var(--gold); font-weight: 800; text-align: center;">💸 PAYMENT: CASH ON DELIVERY (COD)</p>
+            
+            <div class="invoice-details">
+                <div class="summary-row"><span>Cart Subtotal:</span> <span id="cart-subtotal">₹0</span></div>
+                <div class="summary-row"><span>CGST (9%):</span> <span id="cart-cgst">₹0</span></div>
+                <div class="summary-row"><span>SGST (9%):</span> <span id="cart-sgst">₹0</span></div>
+                <div class="total-row"><span>Grand Total:</span> <span id="grand-total">₹0</span></div>
+            </div>
+
+            <p class="cod-badge">💸 PAYMENT: CASH ON DELIVERY (COD)</p>
+            
             <input type="text" id="cust-name" placeholder="Full Name">
             <input type="text" id="cust-phone" placeholder="Phone Number">
             <input type="text" id="addr-line1" placeholder="Address No.">
             <input type="text" id="addr-landmark" placeholder="Landmark">
             <input type="text" id="addr-pincode" placeholder="Pincode">
-            <div class="warning-text">⚠️ ATTENTION: YOUR ORDER IS NOT PLACED UNTIL YOU SEND THE MESSAGE ON WHATSAPP.</div>
-            <button id="submit-btn" class="add-btn" style="background: var(--gold); color: black; margin-top: 20px;" onclick="sendWhatsApp()">PLACE COD ORDER ON WHATSAPP</button>
-            <button class="add-btn" style="margin-top: 10px; background: #eee; color: #333; border:none;" onclick="closeCheckout()">BACK TO STORE</button>
+            
+            <div class="warning-text">⚠️ Order will only be processed after you click "Send" on WhatsApp!</div>
+            
+            <button class="add-btn" style="margin-top: 20px;" onclick="sendWhatsApp()">PLACE COD ORDER VIA WHATSAPP</button>
+            <button class="add-btn" style="margin-top: 10px; background: transparent; border: 1px solid #444; color: #888;" onclick="closeCheckout()">BACK TO STORE</button>
         </div>
     </div>
 
     <footer>
-        <p style="color: var(--gold); font-weight: 700; font-size: 18px;">Heena Electronics Pvt Ltd</p>
-        <p>Established 2017 | Saroli, Surat</p>
-        <p>© 2026 YV.india. Factory Direct Pride.</p>
+        <p style="color: var(--gold); font-weight: 700; font-size: 18px; text-transform: uppercase;">Heena Electronics Pvt Ltd</p>
+        <p>Est. 2017 | Factory Direct Electronics</p>
+        <p>📍 37-38 Ambika Industrial Estate, Saroli, Surat</p>
+        <p style="margin-top: 20px; font-size: 12px;">© 2026 YV.india. All Rights Reserved.</p>
     </footer>
 
     <script>
         let cart = [];
+
+        // Live Search Bar Logic
+        function filterProducts() {
+            let input = document.getElementById('search-bar').value.toLowerCase();
+            let cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                let title = card.querySelector('h3').innerText.toLowerCase();
+                card.style.display = title.includes(input) ? "flex" : "none";
+            });
+        }
+
+        // Premium Toast Logic
         function showToast(msg) {
             let x = document.getElementById("toast");
             x.innerText = msg; x.className = "show";
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         }
+
+        // Cart Logic
         function addToCart(name, price) {
             cart.push({ id: Date.now() + Math.random(), name, price });
             document.getElementById('cart-count').innerText = cart.length;
-            showToast(name + " added!");
+            showToast(name + " added to your cart!");
         }
+
         function removeFromCart(id) {
             cart = cart.filter(item => item.id !== id);
             document.getElementById('cart-count').innerText = cart.length;
             updateSummary();
             if (cart.length === 0) closeCheckout();
         }
+
         function openCheckout() {
             if (cart.length === 0) { showToast("Your cart is empty!"); return; }
             updateSummary();
             document.getElementById('checkout-modal').style.display = 'block';
         }
+
         function closeCheckout() { document.getElementById('checkout-modal').style.display = 'none'; }
+
+        // Upgraded GST Calculation Logic
         function updateSummary() {
             const list = document.getElementById('cart-items-list');
             list.innerHTML = "";
             let subtotal = 0;
+            
             cart.forEach(item => {
-                list.innerHTML += `<div class="cart-item-row"><span>${item.name} <br><small style="color:#888;">₹${item.price}</small></span><button style="color:red; cursor:pointer; background:none; border:none;" onclick="removeFromCart(${item.id})">🗑️ Remove</button></div>`;
+                list.innerHTML += `<div class="cart-item-row"><span>${item.name}</span><span style="color:var(--gold);">₹${item.price} <button style="color:#ff4d4d; background:none; border:none; cursor:pointer; font-weight:bold; margin-left:10px;" onclick="removeFromCart(${item.id})">X</button></span></div>`;
                 subtotal += item.price;
             });
-            document.getElementById('grand-total').innerText = "₹" + (subtotal * 1.18).toFixed(2);
+
+            // 9% CGST + 9% SGST Breakdown
+            let cgst = subtotal * 0.09;
+            let sgst = subtotal * 0.09;
+            let grandTotal = subtotal + cgst + sgst;
+
+            document.getElementById('cart-subtotal').innerText = "₹" + subtotal.toFixed(2);
+            document.getElementById('cart-cgst').innerText = "₹" + cgst.toFixed(2);
+            document.getElementById('cart-sgst').innerText = "₹" + sgst.toFixed(2);
+            document.getElementById('grand-total').innerText = "₹" + grandTotal.toFixed(2);
         }
+
+        // Advanced WhatsApp Formatting
         function sendWhatsApp() {
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const line1 = document.getElementById('addr-line1').value;
             const land = document.getElementById('addr-landmark').value;
             const pin = document.getElementById('addr-pincode').value;
-            if(!name || !phone || !line1 || !pin) { alert("Fill all details!"); return; }
+            
+            if(!name || !phone || !line1 || !pin) { showToast("⚠️ Please fill your Name, Phone, and Address!"); return; }
+            
             let itemsList = cart.map(i => i.name).join(", ");
-            let message = `*NEW COD ORDER - YV.india*%0A%0A*Customer:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${line1}, ${land}, Surat - ${pin}%0A*Items:* ${itemsList}%0A*Total Bill:* ${document.getElementById('grand-total').innerText}`;
+            
+            let message = `*NEW COD ORDER - YV.india*%0A%0A` +
+                          `*Customer:* ${name}%0A` +
+                          `*Phone:* ${phone}%0A` +
+                          `*Delivery to:* ${line1}, ${land}, Surat - ${pin}%0A%0A` +
+                          `*📦 Order Details:*%0A` +
+                          `${itemsList}%0A%0A` +
+                          `*🧾 Billing Breakdown:*%0A` +
+                          `Subtotal: ${document.getElementById('cart-subtotal').innerText}%0A` +
+                          `CGST (9%): ${document.getElementById('cart-cgst').innerText}%0A` +
+                          `SGST (9%): ${document.getElementById('cart-sgst').innerText}%0A` +
+                          `*GRAND TOTAL: ${document.getElementById('grand-total').innerText}*%0A%0A` +
+                          `_Awaiting stock verification from Saroli Factory._`;
+            
             window.open(`https://wa.me/919327678853?text=${message}`, '_blank');
             cart = []; document.getElementById('cart-count').innerText = "0"; closeCheckout();
         }
