@@ -12,14 +12,10 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--black); color: var(--text); }
         
-        /* Navigation & Search */
+        /* Navigation */
         nav { background: var(--black); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #333; }
         .nav-brand-link { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 25px; transition: 0.3s; letter-spacing: 1px; }
         .nav-brand-link:hover { background: var(--gold); color: black; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
-        
-        .search-container { flex-grow: 1; max-width: 400px; margin: 0 30px; position: relative; }
-        .search-bar { width: 100%; padding: 10px 15px; border-radius: 25px; border: 1px solid #444; background: #222; color: white; font-family: 'Montserrat', sans-serif; box-sizing: border-box; outline: none; transition: 0.3s; }
-        .search-bar:focus { border-color: var(--gold); background: #111; }
         
         .cart-trigger { color: var(--gold); cursor: pointer; font-size: 24px; position: relative; transition: 0.3s; }
         .cart-trigger:hover { transform: scale(1.1); }
@@ -46,6 +42,13 @@
         .card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 20px; background-color: var(--white); border-radius: 8px; padding: 15px; box-sizing: border-box; transition: 0.4s; }
         .card:hover img { transform: scale(1.03); }
         
+        /* Product Features List */
+        .feature-list { text-align: left; font-size: 12px; color: #ccc; margin-bottom: 15px; background: #1a1a1a; padding: 12px; border-radius: 6px; border: 1px solid #333; }
+        .feature-list p { margin: 6px 0; line-height: 1.4; }
+        .feature-list strong { color: var(--gold); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .feature-list ul { margin: 5px 0 0 0; padding-left: 20px; }
+        .feature-list li { margin-bottom: 5px; }
+        
         /* Bestseller Badge */
         .badge { position: absolute; top: 15px; right: -10px; background: var(--gold); color: black; font-size: 10px; font-weight: 800; padding: 5px 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 10; }
         
@@ -57,7 +60,7 @@
         .add-btn { background: var(--card-bg); color: var(--gold); padding: 14px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 14px; border: 2px solid var(--gold); cursor: pointer; width: 100%; transition: 0.3s; letter-spacing: 1px; }
         .add-btn:hover { background: var(--gold); color: black; }
 
-        /* Checkout Modal - Detailed GST Invoice Style */
+        /* Checkout Modal */
         #checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(5px); overflow-y: auto; }
         .modal-content { background: #1a1a1a; border: 1px solid #444; color: var(--text); width: 95%; max-width: 550px; margin: 40px auto; padding: 35px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
         .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #333; font-weight: 500; font-size: 14px; }
@@ -91,7 +94,6 @@
 
     <nav>
         <a href="https://linktr.ee/heena_electronics.pvt.ltd" class="nav-brand-link" target="_blank">SOCIALS</a>
-    
         <div class="cart-trigger" onclick="openCheckout()">🛒 <span id="cart-count">0</span></div>
     </nav>
 
@@ -110,48 +112,333 @@
 
     <h2 id="tvs" class="section-title">Smart Televisions</h2>
     <div class="grid" id="product-grid">
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-2402</h3><div class="specs-container"><span class="spec-badge">24" Standard</span></div><div class="price">₹6,859</div><button class="add-btn" onclick="addToCart('YV-2402', 6859)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-2402 S</h3><div class="specs-container"><span class="spec-badge">24" Smart</span></div><div class="price">₹8,759</div><button class="add-btn" onclick="addToCart('YV-2402 S', 8759)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3202S FL</h3><div class="specs-container"><span class="spec-badge">32" Frameless</span></div><div class="price">₹10,415</div><button class="add-btn" onclick="addToCart('YV-3202S FL', 10415)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3202S GLASS</h3><div class="specs-container"><span class="spec-badge">32" Glass</span></div><div class="price">₹11,093</div><button class="add-btn" onclick="addToCart('YV-3202S Glass', 11093)">Add to Cart</button></div>
-        <div class="card product-card"><div class="badge">Bestseller</div><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-3212S FL</h3><div class="specs-container"><span class="spec-badge">32" Smart Frameless</span></div><div class="price">₹10,890</div><button class="add-btn" onclick="addToCart('YV-3212S FL', 10890)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV 40" LED FL</h3><div class="specs-container"><span class="spec-badge">40" Frameless</span></div><div class="price">₹14,045</div><button class="add-btn" onclick="addToCart('YV 40 LED FL', 14045)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4212S</h3><div class="specs-container"><span class="spec-badge">42" Smart</span></div><div class="price">₹14,520</div><button class="add-btn" onclick="addToCart('YV-4212S', 14520)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4302S FL</h3><div class="specs-container"><span class="spec-badge">43" Frameless</span></div><div class="price">₹15,741</div><button class="add-btn" onclick="addToCart('YV-4302S FL', 15741)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312S</h3><div class="specs-container"><span class="spec-badge">43" Smart</span></div><div class="price">₹16,216</div><button class="add-btn" onclick="addToCart('YV-4312S', 16216)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312SBT</h3><div class="specs-container"><span class="spec-badge">Voice Remote</span></div><div class="price">₹17,031</div><button class="add-btn" onclick="addToCart('YV-4312SBT', 17031)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV-4312S K OS</h3><div class="specs-container"><span class="spec-badge">WebOS</span></div><div class="price">₹18,727</div><button class="add-btn" onclick="addToCart('YV-4312S WebOS', 18727)">Add to Cart</button></div>
-        <div class="card product-card"><div class="badge">Premium</div><img src="YV-TV-Generic.png" onerror="this.src='YV-3212S 2HDMI FL.jpg'"><h3>YV 55 TZ-OS</h3><div class="specs-container"><span class="spec-badge">55" Tizen OS</span></div><div class="price">₹28,940</div><button class="add-btn" onclick="addToCart('YV 55 TZ-OS', 28940)">Add to Cart</button></div>
+        <div class="card product-card">
+            <img src="YV-2402-(NORMAL).png">
+            <h3>YV-2402</h3>
+            <div class="specs-container"><span class="spec-badge">24" Standard</span></div>
+            <div class="feature-list"><ul><li>HD Ready Display</li><li>Vivid Colors & A+ Panel</li><li>Low Power Consumption</li><li>HDMI & USB Inputs</li></ul></div>
+            <div class="price">₹6,859</div>
+            <button class="add-btn" onclick="addToCart('YV-2402', 6859)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-2402-(NORMAL).png">
+            <h3>YV-2402 S</h3>
+            <div class="specs-container"><span class="spec-badge">24" Smart</span></div>
+            <div class="feature-list"><ul><li>Built-in Wi-Fi & Apps</li><li>Screen Mirroring Support</li><li>Vivid Colors A+ Panel</li><li>20W Stereo Sound</li></ul></div>
+            <div class="price">₹8,759</div>
+            <button class="add-btn" onclick="addToCart('YV-2402 S', 8759)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-3202S FL</h3>
+            <div class="specs-container"><span class="spec-badge">32" Frameless</span></div>
+            <div class="feature-list"><ul><li>Edge-to-Edge Frameless Design</li><li>Built-in Wi-Fi & Smart OS</li><li>Screen Mirroring / Cast</li><li>20W Stereo Audio</li></ul></div>
+            <div class="price">₹10,415</div>
+            <button class="add-btn" onclick="addToCart('YV-3202S FL', 10415)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-3202S GLASS</h3>
+            <div class="specs-container"><span class="spec-badge">32" Glass</span></div>
+            <div class="feature-list"><ul><li>Toughened Glass Protection</li><li>Smart TV OS with Apps</li><li>Built-in Wi-Fi Connectivity</li><li>High-Fidelity Audio</li></ul></div>
+            <div class="price">₹11,093</div>
+            <button class="add-btn" onclick="addToCart('YV-3202S Glass', 11093)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <div class="badge">Bestseller</div>
+            <img src="YV-TV-Generic.png">
+            <h3>YV-3212S FL</h3>
+            <div class="specs-container"><span class="spec-badge">32" Smart Frameless</span></div>
+            <div class="feature-list"><ul><li>Premium Frameless Display</li><li>Quad-Core Processor</li><li>All Popular Apps Supported</li><li>Screen Mirroring Cast</li></ul></div>
+            <div class="price">₹10,890</div>
+            <button class="add-btn" onclick="addToCart('YV-3212S FL', 10890)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV 40" LED FL</h3>
+            <div class="specs-container"><span class="spec-badge">40" Frameless Smart</span></div>
+            <div class="feature-list"><ul><li>Full HD Frameless Panel</li><li>Built-in Wi-Fi & Smart OS</li><li>Popular Streaming Apps</li><li>20W Stereo Sound</li></ul></div>
+            <div class="price">₹14,045</div>
+            <button class="add-btn" onclick="addToCart('YV 40 LED FL', 14045)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-4212S</h3>
+            <div class="specs-container"><span class="spec-badge">42" Smart</span></div>
+            <div class="feature-list"><ul><li>Full HD Display Resolution</li><li>Smart OS with Wi-Fi</li><li>Screen Mirroring Support</li><li>Energy Saving Mode</li></ul></div>
+            <div class="price">₹14,520</div>
+            <button class="add-btn" onclick="addToCart('YV-4212S', 14520)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-4302S FL</h3>
+            <div class="specs-container"><span class="spec-badge">43" Frameless Smart</span></div>
+            <div class="feature-list"><ul><li>Ultra-slim Frameless Edge</li><li>Smart TV OS Interface</li><li>Built-in Wi-Fi & Cast</li><li>20W High-Fidelity Audio</li></ul></div>
+            <div class="price">₹15,741</div>
+            <button class="add-btn" onclick="addToCart('YV-4302S FL', 15741)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-4312S</h3>
+            <div class="specs-container"><span class="spec-badge">43" Smart</span></div>
+            <div class="feature-list"><ul><li>Full HD Crystal Clear Panel</li><li>Quad-Core Processor</li><li>All Popular Apps Built-in</li><li>Screen Mirroring Support</li></ul></div>
+            <div class="price">₹16,216</div>
+            <button class="add-btn" onclick="addToCart('YV-4312S', 16216)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-4312SBT</h3>
+            <div class="specs-container"><span class="spec-badge">43" Bluetooth Voice</span></div>
+            <div class="feature-list"><ul><li>Bluetooth Remote Control</li><li>Voice Assistant Enabled</li><li>Built-in Wi-Fi & Apps</li><li>Full HD Resolution</li></ul></div>
+            <div class="price">₹17,031</div>
+            <button class="add-btn" onclick="addToCart('YV-4312SBT', 17031)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TV-Generic.png">
+            <h3>YV-4312S K OS</h3>
+            <div class="specs-container"><span class="spec-badge">43" WebOS</span></div>
+            <div class="feature-list"><ul><li>Premium WebOS Interface</li><li>Magic Remote Compatible</li><li>Full HD Resolution</li><li>Popular Apps & Wi-Fi</li></ul></div>
+            <div class="price">₹18,727</div>
+            <button class="add-btn" onclick="addToCart('YV-4312S WebOS', 18727)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <div class="badge">Premium</div>
+            <img src="YV-TV-Generic.png">
+            <h3>YV 55 TZ-OS</h3>
+            <div class="specs-container"><span class="spec-badge">55" 4K Tizen OS</span></div>
+            <div class="feature-list"><ul><li>4K Ultra HD Resolution</li><li>Official Tizen OS</li><li>Bezel-less Premium Design</li><li>Cinematic Audio Output</li></ul></div>
+            <div class="price">₹28,940</div>
+            <button class="add-btn" onclick="addToCart('YV 55 TZ-OS', 28940)">Add to Cart</button>
+        </div>
     </div>
 
     <h2 id="speakers" class="section-title">YV Speakers</h2>
     <div class="grid">
-        <div class="card product-card"><div class="badge">Top Rated</div><img src="YV-PS1202A MAX Party.jpg" onerror="this.src='YV-PS1202A MAX Party.png'"><h3>YV-PS1202A MAX</h3><div class="specs-container"><span class="spec-badge">Dual Mic Yellow</span></div><div class="price">₹18,200</div><button class="add-btn" onclick="addToCart('PS1202A MAX', 18200)">Add to Cart</button></div>
-        <div class="card product-card"><img src="party.png"><h3>YV-PS1002A MAX</h3><div class="specs-container"><span class="spec-badge">Multicolour Max</span></div><div class="price">₹14,150</div><button class="add-btn" onclick="addToCart('PS1002A MAX', 14150)">Add to Cart</button></div>
-        <div class="card product-card"><img src="party.png"><h3>YV-PS1002A Party</h3><div class="specs-container"><span class="spec-badge">Party Speaker</span></div><div class="price">₹12,350</div><button class="add-btn" onclick="addToCart('PS1002A Party', 12350)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-PS0802A-Party.jpg" onerror="this.src='YV-PS0802A-Party.png'"><h3>YV-PS0802A Party</h3><div class="specs-container"><span class="spec-badge">Pink Edition</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('PS0802A Party', 11250)">Add to Cart</button></div>
-        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1501A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501A Trolley', 12500)">Add to Cart</button></div>
-        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1201A Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('TS1201A Trolley', 11250)">Add to Cart</button></div>
-        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1201AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹11,650</div><button class="add-btn" onclick="addToCart('TS1201AF Trolley', 11650)">Add to Cart</button></div>
-        <div class="card product-card"><img src="trolley.jpg" onerror="this.src='trolley.png'"><h3>YV-TS1501AF Trolley</h3><div class="specs-container"><span class="spec-badge">Trolley Design</span></div><div class="price">₹12,500</div><button class="add-btn" onclick="addToCart('TS1501AF Trolley', 12500)">Add to Cart</button></div>
+        <div class="card product-card"><div class="badge">Top Rated</div><img src="YV-PS1202A MAX Party.png"><h3>YV-PS1202A MAX</h3><div class="specs-container"><span class="spec-badge">Dual Mic Yellow</span></div><div class="price">₹18,200</div><button class="add-btn" onclick="addToCart('PS1202A MAX', 18200)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-PS1202A MAX Party.png"><h3>YV-PS1002A MAX</h3><div class="specs-container"><span class="spec-badge">Multicolour Max</span></div><div class="price">₹14,150</div><button class="add-btn" onclick="addToCart('PS1002A MAX', 14150)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-PS1202A MAX Party.png"><h3>YV-PS1002A Party</h3><div class="specs-container"><span class="spec-badge">Party Speaker</span></div><div class="price">₹12,350</div><button class="add-btn" onclick="addToCart('PS1002A Party', 12350)">Add to Cart</button></div>
+        <div class="card product-card"><img src="YV-PS1202A MAX Party.png"><h3>YV-PS0802A Party</h3><div class="specs-container"><span class="spec-badge">Pink Edition</span></div><div class="price">₹11,250</div><button class="add-btn" onclick="addToCart('PS0802A Party', 11250)">Add to Cart</button></div>
+        
+        <div class="card product-card">
+            <img src="YV-TS1501A Trolley.png">
+            <h3>YV-TS1501A Trolley</h3>
+            <div class="specs-container"><span class="spec-badge">Trolley Design</span></div>
+            <div class="feature-list">
+                <p><strong>Specifications</strong></p>
+                <ul><li>Weight: 18.59kg (Gross: 21.48kg)</li><li>Power: 110-240v 50/60Hz | 12V DC Battery</li><li>Includes: 2 Mics, 2 Mic Holders</li></ul>
+                <p style="margin-top: 10px;"><strong>Features</strong></p>
+                <ul><li>15" Speaker + Tweeter</li><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
+            </div>
+            <div class="price">₹12,500</div>
+            <button class="add-btn" onclick="addToCart('TS1501A Trolley', 12500)">Add to Cart</button>
+        </div>
+        
+        <div class="card product-card">
+            <img src="YV-TS1501A Trolley.png">
+            <h3>YV-TS1201A Trolley</h3>
+            <div class="specs-container"><span class="spec-badge">Trolley Design</span></div>
+            <div class="feature-list">
+                <p><strong>Specifications</strong></p>
+                <ul><li>Weight: 15.53kg (Gross: 17.15kg)</li><li>Power: 110-240v 50/60Hz | 12V DC Battery</li><li>Includes: 2 Mics, 2 Mic Holders</li></ul>
+                <p style="margin-top: 10px;"><strong>Features</strong></p>
+                <ul><li>15" Speaker + Tweeter</li><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
+            </div>
+            <div class="price">₹11,250</div>
+            <button class="add-btn" onclick="addToCart('TS1201A Trolley', 11250)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TS1501A Trolley.png">
+            <h3>YV-TS1201AF Trolley</h3>
+            <div class="specs-container"><span class="spec-badge">Trolley Design</span></div>
+            <div class="feature-list">
+                <p><strong>Specifications</strong></p>
+                <ul><li>Weight: 15.79kg (Gross: 17.98kg)</li><li>Power: 110-240v 50/60Hz | 12V DC Battery</li><li>Includes: 2 Mics, 2 Mic Holders</li></ul>
+                <p style="margin-top: 10px;"><strong>Features</strong></p>
+                <ul><li>15" Speaker + Tweeter</li><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
+            </div>
+            <div class="price">₹11,650</div>
+            <button class="add-btn" onclick="addToCart('TS1201AF Trolley', 11650)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-TS1501A Trolley.png">
+            <h3>YV-TS1501AF Trolley</h3>
+            <div class="specs-container"><span class="spec-badge">Trolley Design</span></div>
+            <div class="feature-list">
+                <p><strong>Specifications</strong></p>
+                <ul><li>Weight: 18.97kg (Gross: 21.79kg)</li><li>Power: 110-240v 50/60Hz | 12V DC Battery</li><li>Includes: 2 Mics, 2 Mic Holders</li></ul>
+                <p style="margin-top: 10px;"><strong>Features</strong></p>
+                <ul><li>15" Speaker + Tweeter</li><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
+            </div>
+            <div class="price">₹12,500</div>
+            <button class="add-btn" onclick="addToCart('TS1501AF Trolley', 12500)">Add to Cart</button>
+        </div>
     </div>
 
     <h2 id="soundbars" class="section-title">YV Soundbars</h2>
     <div class="grid">
-        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-TSB5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB5004A W/Woofer', 5000)">Add to Cart</button></div>
-        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS6004A-WL</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹8,450</div><button class="add-btn" onclick="addToCart('SBS6004A-WL W/Woofer', 8450)">Add to Cart</button></div>
-        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS8006A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹10,150</div><button class="add-btn" onclick="addToCart('SBS8006A W/Woofer', 10150)">Add to Cart</button></div>
-        <div class="card product-card"><img src="soundbar-w-woofer.png" onerror="this.src='soundbar w woofer.jpg'"><h3>YV-SBS5004A</h3><div class="specs-container"><span class="spec-badge">With Woofer</span></div><div class="price">₹7,350</div><button class="add-btn" onclick="addToCart('SBS5004A W/Woofer', 7350)">Add to Cart</button></div>
-        <div class="card product-card"><img src="no-woofer.png" onerror="this.src='no woofer.jpg'"><h3>YV-TSB6004A-WL</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹5,000</div><button class="add-btn" onclick="addToCart('TSB6004A-WL No Woofer', 5000)">Add to Cart</button></div>
-        <div class="card product-card"><img src="no-woofer.png" onerror="this.src='no woofer.jpg'"><h3>YV-TSB8006A</h3><div class="specs-container"><span class="spec-badge">Standalone</span></div><div class="price">₹6,200</div><button class="add-btn" onclick="addToCart('TSB8006A No Woofer', 6200)">Add to Cart</button></div>
+        <div class="card product-card">
+            <img src="soundbar-w-woofer.png">
+            <h3>YV-SBS6004A-WL</h3>
+            <div class="specs-container"><span class="spec-badge">120W + 120W</span><span class="spec-badge">With Woofer</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 120W</li><li>Weight: 2.20kg / 2.95kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+                <p style="margin-top: 10px;"><strong>Subwoofer</strong></p>
+                <ul><li>Output Rating: 120W</li><li>Weight: 4.30kg / 5.52kg</li></ul>
+            </div>
+            <div class="price">₹8,450</div>
+            <button class="add-btn" onclick="addToCart('SBS6004A-WL W/Woofer', 8450)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="no-woofer.png">
+            <h3>YV-TSB5004A</h3>
+            <div class="specs-container"><span class="spec-badge">50W</span><span class="spec-badge">Standalone</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 50W</li><li>Weight: 2.15kg / 2.96kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+            </div>
+            <div class="price">₹5,000</div>
+            <button class="add-btn" onclick="addToCart('TSB5004A Standalone', 5000)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="soundbar-w-woofer.png">
+            <h3>YV-SBS8006A-WL</h3>
+            <div class="specs-container"><span class="spec-badge">160W + 160W</span><span class="spec-badge">With Woofer</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 160W</li><li>Weight: 2.75kg / 3.49kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+                <p style="margin-top: 10px;"><strong>Subwoofer</strong></p>
+                <ul><li>Output Rating: 160W</li><li>Weight: 4.83kg / 6.02kg</li></ul>
+            </div>
+            <div class="price">₹10,150</div>
+            <button class="add-btn" onclick="addToCart('SBS8006A-WL W/Woofer', 10150)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="soundbar-w-woofer.png">
+            <h3>YV-SBS5004A</h3>
+            <div class="specs-container"><span class="spec-badge">100W + 100W</span><span class="spec-badge">With Woofer</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 100W</li><li>Weight: 2.15kg / 2.96kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+                <p style="margin-top: 10px;"><strong>Subwoofer</strong></p>
+                <ul><li>Output Rating: 100W</li><li>Weight: 2.55kg / 3.26kg</li></ul>
+            </div>
+            <div class="price">₹7,350</div>
+            <button class="add-btn" onclick="addToCart('SBS5004A W/Woofer', 7350)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="no-woofer.png">
+            <h3>YV-TSB8006A-WL</h3>
+            <div class="specs-container"><span class="spec-badge">80W</span><span class="spec-badge">Standalone</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 80W</li><li>Weight: 3.55kg / 4.35kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+            </div>
+            <div class="price">₹6,200</div>
+            <button class="add-btn" onclick="addToCart('TSB8006A-WL Standalone', 6200)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="no-woofer.png">
+            <h3>YV-TSB6004A</h3>
+            <div class="specs-container"><span class="spec-badge">60W</span><span class="spec-badge">Standalone</span></div>
+            <div class="feature-list">
+                <p><strong>Soundbar</strong></p>
+                <ul><li>Output Rating: 60W</li><li>Weight: 2.20kg / 2.95kg</li><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
+            </div>
+            <div class="price">₹5,000</div>
+            <button class="add-btn" onclick="addToCart('TSB6004A Standalone', 5000)">Add to Cart</button>
+        </div>
     </div>
 
     <h2 id="cooktops" class="section-title">Appliances</h2>
     <div class="grid">
-        <div class="card product-card"><img src="YV-EK01IND 2000W.png"><h3>YV-EK01IND</h3><div class="specs-container"><span class="spec-badge">2000W Induction</span></div><div class="price">₹3,750</div><button class="add-btn" onclick="addToCart('EK01IND 2000W', 3750)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-EK07IND-1 1600W.png"><h3>YV-EK07IND-1</h3><div class="specs-container"><span class="spec-badge">1600W Induction</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK07IND-1 1600W', 3380)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-EK04INF-1 2000W.png"><h3>YV-EK04INF-1</h3><div class="specs-container"><span class="spec-badge">2000W Infrared</span></div><div class="price">₹3,525</div><button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button></div>
-        <div class="card product-card"><img src="YV-EK07IND-1 1600W.png"><h3>YV-EK08IND-2</h3><div class="specs-container"><span class="spec-badge">1600W Compact</span></div><div class="price">₹3,380</div><button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button></div>
+        
+        <div class="card product-card">
+            <img src="YV-EK01IND 2000W.png">
+            <h3>YV-EK01IND</h3>
+            <div class="specs-container"><span class="spec-badge">2000W</span><span class="spec-badge">Touch & Button</span></div>
+            <div class="feature-list">
+                <ul>
+                    <li>Type: Induction Cooktop</li>
+                    <li>Power: 2000W High Efficiency</li>
+                    <li>Control: Dual (Touch & Button Panel)</li>
+                    <li>Features: Digital Display, Multi-Cooking Modes</li>
+                    <li>Safety: Overheat Protection</li>
+                </ul>
+            </div>
+            <div class="price">₹3,750</div>
+            <button class="add-btn" onclick="addToCart('EK01IND 2000W', 3750)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-EK07IND-1 1600W.png">
+            <h3>YV-EK07IND-1</h3>
+            <div class="specs-container"><span class="spec-badge">1600W</span><span class="spec-badge">Button Control</span></div>
+            <div class="feature-list">
+                <ul>
+                    <li>Type: Induction Cooktop</li>
+                    <li>Power: 1600W Fast Heating</li>
+                    <li>Control: Push Button Interface</li>
+                    <li>Features: Preset Indian Menus</li>
+                    <li>Safety: Auto Power Off</li>
+                </ul>
+            </div>
+            <div class="price">₹3,380</div>
+            <button class="add-btn" onclick="addToCart('EK07IND-1 1600W', 3380)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-EK04INF-1 2000W.png">
+            <h3>YV-EK04INF-1</h3>
+            <div class="specs-container"><span class="spec-badge">2000W</span><span class="spec-badge">Infrared</span></div>
+            <div class="feature-list">
+                <ul>
+                    <li>Type: Infrared Cooktop</li>
+                    <li>Power: 2000W High-Temp Heating</li>
+                    <li>Compatibility: Works with ALL Utensils</li>
+                    <li>Control: Smart Touch Panel</li>
+                    <li>Features: Variable Temp Control, Easy Clean</li>
+                </ul>
+            </div>
+            <div class="price">₹3,525</div>
+            <button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button>
+        </div>
+
+        <div class="card product-card">
+            <img src="YV-EK08IND-2 1600W.png">
+            <h3>YV-EK08IND-2</h3>
+            <div class="specs-container"><span class="spec-badge">1600W</span><span class="spec-badge">Touch Control</span></div>
+            <div class="feature-list">
+                <ul>
+                    <li>Type: Compact Induction Cooktop</li>
+                    <li>Power: 1600W Energy Efficient</li>
+                    <li>Control: Smart Touch Control</li>
+                    <li>Features: Sleek Glass Design, Timer Function</li>
+                    <li>Safety: Spill-proof, Child Lock</li>
+                </ul>
+            </div>
+            <div class="price">₹3,380</div>
+            <button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button>
+        </div>
+
     </div>
 
     <div id="checkout-modal">
@@ -192,24 +479,12 @@
     <script>
         let cart = [];
 
-        // Live Search Bar Logic
-        function filterProducts() {
-            let input = document.getElementById('search-bar').value.toLowerCase();
-            let cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                let title = card.querySelector('h3').innerText.toLowerCase();
-                card.style.display = title.includes(input) ? "flex" : "none";
-            });
-        }
-
-        // Premium Toast Logic
         function showToast(msg) {
             let x = document.getElementById("toast");
             x.innerText = msg; x.className = "show";
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         }
 
-        // Cart Logic
         function addToCart(name, price) {
             cart.push({ id: Date.now() + Math.random(), name, price });
             document.getElementById('cart-count').innerText = cart.length;
@@ -231,7 +506,6 @@
 
         function closeCheckout() { document.getElementById('checkout-modal').style.display = 'none'; }
 
-        // Upgraded GST Calculation Logic
         function updateSummary() {
             const list = document.getElementById('cart-items-list');
             list.innerHTML = "";
@@ -242,7 +516,6 @@
                 subtotal += item.price;
             });
 
-            // 9% CGST + 9% SGST Breakdown
             let cgst = subtotal * 0.09;
             let sgst = subtotal * 0.09;
             let grandTotal = subtotal + cgst + sgst;
@@ -253,7 +526,6 @@
             document.getElementById('grand-total').innerText = "₹" + grandTotal.toFixed(2);
         }
 
-        // Advanced WhatsApp Formatting
         function sendWhatsApp() {
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
