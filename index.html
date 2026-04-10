@@ -1,6 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YV.india</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+nav {
+    background: black;
+    color: gold;
+    padding: 15px 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px;
+}
+
+.hero img {
+    height: 120px;
+}
+
+.section {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    border-bottom: 2px solid gold;
+    padding-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    border: 1px solid #eee;
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: black;
+    color: gold;
+    text-decoration: none;
+}
+
+/* WhatsApp Button */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 14px;
+    border-radius: 50%;
+    font-size: 18px;
+    text-decoration: none;
+}
+</style>
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YV.india | Official Store</title>
@@ -88,6 +167,7 @@
 </head>
 <body>
 
+<nav>YV.india</nav>
     <a href="https://wa.me/919327678853?text=Hi,%20I%20have%20a%20question!" class="float-wa" target="_blank">💬 Chat with us</a>
     
     <div id="toast">Item added!</div>
@@ -96,10 +176,7 @@
         <a href="https://linktr.ee/heena_electronics.pvt.ltd" class="nav-brand-link" target="_blank">SOCIALS</a>
         <div class="cart-trigger" onclick="openCheckout()">🛒 <span id="cart-count">0</span></div>
     </nav>
-    <div style="background:#D4AF37; color:black; text-align:center; padding:10px; font-weight:700; font-size:13px; letter-spacing:1px;">
-🚚 DELIVERY AVAILABLE ONLY IN SURAT & SOUTH GUJARAT
-</div>
-    
+
     <div class="hero">
         <img src="logo.png" alt="YV India Logo">
         <h1>Innovation & Style</h1>
@@ -508,6 +585,10 @@
                 <div class="total-row"><span>Grand Total:</span> <span id="grand-total">₹0</span></div>
             </div>
 
+<div class="hero">
+<img src="logo.png">
+<p>Surat & South Gujarat Only</p>
+</div>
             <p class="cod-badge">💸 PAYMENT: CASH ON DELIVERY (COD)</p>
             
             <input type="text" id="cust-name" placeholder="Full Name">
@@ -523,6 +604,9 @@
         </div>
     </div>
 
+<div class="section">
+<h2>Televisions</h2>
+<div class="grid">
     <footer>
         <p style="color: var(--gold); font-weight: 700; font-size: 18px; text-transform: uppercase;">Heena Electronics Pvt Ltd</p>
         <p>Est. 2017 | Factory Direct Electronics</p>
@@ -530,21 +614,36 @@
         <p style="margin-top: 20px; font-size: 12px;">© 2026 YV.india. All Rights Reserved.</p>
     </footer>
 
+<div class="card">
+<img src="YV-2402-(NORMAL).png">
+<p>YV-2402</p>
+<a href="https://wa.me/919327678853?text=I want YV-2402" class="btn">Buy</a>
+</div>
     <script>
         let cart = [];
 
+<div class="card">
+<img src="YV-TV-Generic.png">
+<p>More Models Available</p>
+<a href="https://wa.me/919327678853" class="btn">Enquire</a>
+</div>
         function showToast(msg) {
             let x = document.getElementById("toast");
             x.innerText = msg; x.className = "show";
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         }
 
+</div>
+</div>
         function addToCart(name, price) {
             cart.push({ id: Date.now() + Math.random(), name, price });
             document.getElementById('cart-count').innerText = cart.length;
             showToast(name + " added to your cart!");
         }
 
+<div class="section">
+<h2>Audio Products</h2>
+<div class="grid">
         function removeFromCart(id) {
             cart = cart.filter(item => item.id !== id);
             document.getElementById('cart-count').innerText = cart.length;
@@ -552,14 +651,29 @@
             if (cart.length === 0) closeCheckout();
         }
 
+<div class="card">
+<img src="soundbar-w-woofer.png">
+<p>Soundbar with Woofer</p>
+<a href="https://wa.me/919327678853" class="btn">Buy</a>
+</div>
         function openCheckout() {
             if (cart.length === 0) { showToast("Your cart is empty!"); return; }
             updateSummary();
             document.getElementById('checkout-modal').style.display = 'block';
         }
 
+<div class="card">
+<img src="party.png">
+<p>Party Speaker</p>
+<a href="https://wa.me/919327678853" class="btn">Buy</a>
+</div>
         function closeCheckout() { document.getElementById('checkout-modal').style.display = 'none'; }
 
+<div class="card">
+<img src="trolley.png">
+<p>Trolley Speaker</p>
+<a href="https://wa.me/919327678853" class="btn">Buy</a>
+</div>
         function updateSummary() {
             const list = document.getElementById('cart-items-list');
             list.innerHTML = "";
@@ -570,10 +684,14 @@
                 subtotal += item.price;
             });
 
+</div>
+</div>
             let cgst = subtotal * 0.09;
             let sgst = subtotal * 0.09;
             let grandTotal = subtotal + cgst + sgst;
 
+<!-- WhatsApp -->
+<a href="https://wa.me/919327678853" class="whatsapp">💬</a>
             document.getElementById('cart-subtotal').innerText = "₹" + subtotal.toFixed(2);
             document.getElementById('cart-cgst').innerText = "₹" + cgst.toFixed(2);
             document.getElementById('cart-sgst').innerText = "₹" + sgst.toFixed(2);
