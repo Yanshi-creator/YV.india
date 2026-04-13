@@ -1,3 +1,5 @@
+so this code and there are almost 30 products 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -951,69 +953,6 @@
         </div>
 
 
-        <div class="card product-card">
-
-            <img src="YV-EK08IND-2 1600W.png">
-
-            <h3>YV-EK08IND-2</h3>
-
-            <div class="specs-container"><span class="spec-badge">1600W</span><span class="spec-badge">Touch Control</span></div>
-
-            <div class="feature-list">
-
-                <ul>
-
-                    <li>Type: Compact Induction Cooktop</li>
-
-                    <li>Power: 1600W Energy Efficient</li>
-
-                    <li>Control: Smart Touch Control</li>
-
-                    <li>Features: Sleek Glass Design, Timer Function</li>
-
-                    <li>Safety: Spill-proof, Child Lock</li>
-
-                </ul>
-
-            </div>
-
-            <div class="price">₹3,380</div>
-
-            <button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button>
-
-             <div class="card product-card">
-
-            <img src="YV-EK04INF-1 2000W.png">
-
-            <h3>YV-EK04INF-1</h3>
-
-            <div class="specs-container"><span class="spec-badge">2000W</span><span class="spec-badge">Infrared</span></div>
-
-            <div class="feature-list">
-
-                <ul>
-
-                    <li>Type: Infrared Cooktop</li>
-
-                    <li>Power: 2000W High-Temp Heating</li>
-
-                    <li>Compatibility: Works with ALL Utensils</li>
-
-                    <li>Control: Smart Touch Panel</li>
-
-                    <li>Features: Variable Temp Control, Easy Clean</li>
-
-                </ul>
-
-            </div>
-
-            <div class="price">₹3,525</div>
-
-            <button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button>
-
-        </div>
-
-
 
         <div class="card product-card">
 
@@ -1045,7 +984,7 @@
 
             <button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button>
 
-        </div>
+ </div>
 
 
 
@@ -1092,11 +1031,12 @@
             <input type="text" id="addr-landmark" placeholder="Landmark">
 
             <input type="text" id="addr-pincode" placeholder="Pincode">
-         
+
+           
 
             <div class="warning-text">⚠️ Order will only be processed after you click "Send" on WhatsApp!</div>
 
-      
+           
 
             <button class="add-btn" style="margin-top: 20px;" onclick="sendWhatsApp()">PLACE COD ORDER VIA WHATSAPP</button>
 
@@ -1105,6 +1045,8 @@
         </div>
 
     </div>
+
+
 
     <footer>
 
@@ -1119,9 +1061,11 @@
     </footer>
 
 
+
     <script>
 
         let cart = [];
+
 
 
         function showToast(msg) {
@@ -1135,6 +1079,7 @@
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 
         }
+
 
 
         function addToCart(name, price) {
