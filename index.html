@@ -1,821 +1,624 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YV.india | Official Store</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root { --gold: #D4AF37; --black: #050505; --dark-grey: #1a1a1a; --card-bg: #111; --text: #f4f4f4; --white: #ffffff; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--black); color: var(--text); }
-        
-        /* Premium Navigation */
-        nav { 
-            background: rgba(5, 5, 5, 0.8); 
-            backdrop-filter: blur(15px); 
-            padding: 15px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
-        }
-        .nav-brand-link { color: var(--gold); font-size: 14px; font-weight: 700; text-decoration: none; border: 1px solid var(--gold); padding: 8px 20px; border-radius: 25px; transition: 0.3s; letter-spacing: 1px; }
-        .nav-brand-link:hover { background: var(--gold); color: black; box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); }
-        
-        .cart-trigger { color: var(--gold); cursor: pointer; font-size: 24px; position: relative; transition: 0.3s; }
-        .cart-trigger:hover { transform: scale(1.1); }
-        #cart-count { position: absolute; top: -8px; right: -12px; background: white; color: black; border-radius: 50%; padding: 2px 7px; font-size: 11px; font-weight: 800; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c0d10">
+<meta property="og:title" content="YV.india | Factory-direct electronics, Surat">
+<meta property="og:description" content="Smart TVs, party speakers, soundbars and cooktops at factory prices. Same-day delivery in Surat, cash on delivery.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_df535c1a-9cd9-49a4-8963-71c24bd0b342_min.webp">
+<link rel="icon" href="logo.png">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>YV.india | Official Store</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="YV.india — factory-direct Smart TVs, party speakers, soundbars and induction cooktops from Heena Electronics, Surat. Same-day delivery, cash on delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Apple-style retail — quiet nav, one big product statement, category tiles, then calm product grids on alternating grounds. */
+:root{
+  --bg:#ffffff;
+  --ground:#f4f5f7;          /* alternating section ground, faint cool bias */
+  --surface:#ffffff;
+  --ink:#16171a;
+  --ink-2:#5d6169;
+  --ink-3:#8b8f97;
+  --line:#e3e5e9;
+  --accent:#0b63ce;          /* link/action blue */
+  --accent-ink:#ffffff;
+  --hero:#0c0d10;            /* hero band stays dark in both themes */
+  --hero-ink:#f5f6f8;
+  --hero-ink-2:#a3a7b0;
+  --deal:#c2410c;
+  --ok:#15803d;
+  --wa:#1fa855;
+  --shadow:0 1px 2px rgba(16,18,24,.06),0 8px 24px rgba(16,18,24,.06);
+  --f-display:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:22px;
+  --r-pill:999px;
+  --max:1200px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#000000;--ground:#101114;--surface:#17181c;--ink:#f3f4f6;--ink-2:#a6aab2;--ink-3:#7a7f88;--line:#26282e;
+    --accent:#3d8bfd;--accent-ink:#ffffff;--hero:#000000;--hero-ink:#f5f6f8;--hero-ink-2:#9ea3ac;--deal:#fb923c;--ok:#4ade80;--wa:#25c264;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#000000;--ground:#101114;--surface:#17181c;--ink:#f3f4f6;--ink-2:#a6aab2;--ink-3:#7a7f88;--line:#26282e;
+  --accent:#3d8bfd;--accent-ink:#ffffff;--hero:#000000;--hero-ink:#f5f6f8;--hero-ink-2:#9ea3ac;--deal:#fb923c;--ok:#4ade80;--wa:#25c264;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);color-scheme:dark;
+}
 
-        /* Factory Direct Banner */
-        .trust-banner {
-            background: var(--gold);
-            color: black;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.025em}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 
-        /* Hero Section */
-        .hero { 
-            height: 60vh; 
-            min-height: 400px;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; position: relative; overflow: hidden; 
-        }
-        .hero img { height: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.3)); z-index: 2; }
-        .hero h1 { 
-            font-size: clamp(32px, 5vw, 60px);
-            background: linear-gradient(to right, #D4AF37, #f4f4f4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0; letter-spacing: 4px; font-weight: 900; text-transform: uppercase; z-index: 2; 
-        }
+/* ---------- top strip + nav ---------- */
+.strip{background:var(--ground);color:var(--ink-2);font-size:13px;text-align:center}
+.strip .wrap{padding-block:8px;display:flex;gap:6px 18px;justify-content:center;flex-wrap:wrap}
+.strip b{color:var(--ink);font-weight:600}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:20px;height:56px}
+.brand{display:flex;align-items:baseline;gap:2px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:20px;letter-spacing:-.04em}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;margin-left:12px;font-size:14px}
+.navlinks a{text-decoration:none;color:var(--ink-2)}
+.navlinks a:hover{color:var(--ink)}
+.navright{margin-left:auto;display:flex;align-items:center;gap:6px}
+.iconbtn{position:relative;display:inline-grid;place-items:center;width:40px;height:40px;border:0;background:transparent;border-radius:50%;cursor:pointer;text-decoration:none;color:var(--ink)}
+.iconbtn:hover{background:var(--ground)}
+.iconbtn svg{width:20px;height:20px}
+.count{position:absolute;top:3px;right:2px;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:600;display:grid;place-items:center}
+@media (max-width:860px){.navlinks{display:none}}
 
-        /* Quick Trust Indicators */
-        .trust-grid { display: flex; justify-content: center; gap: 20px; padding: 20px; background: #111; flex-wrap: wrap; border-bottom: 1px solid #333; }
-        .trust-box { text-align: center; border: 1px solid #333; padding: 15px; border-radius: 10px; min-width: 150px; background: var(--dark-grey); }
-        .trust-box span { font-size: 24px; }
-        .trust-box p { font-size: 10px; margin: 5px 0; font-weight: 700; letter-spacing: 1px; color: var(--gold); }
+/* ---------- hero ---------- */
+.hero{background:var(--hero);color:var(--hero-ink);overflow:hidden}
+.hero .wrap{padding-block:72px 0;display:grid;justify-items:center;text-align:center;gap:14px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-ink-2);font-weight:500}
+.hero h1{font-size:clamp(44px,8vw,96px);font-weight:700;line-height:.98;letter-spacing:-.045em}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#7ab8ff,#c3a6ff 55%,#ffb27a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lede{font-size:clamp(18px,2.2vw,22px);color:var(--hero-ink-2);max-width:34ch;margin:4px 0 0}
+.price-line{font-size:17px;color:var(--hero-ink)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 22px;border-radius:var(--r-pill);border:0;font-weight:500;font-size:15px;text-decoration:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.wa{background:var(--wa);color:#fff}
+.hero-stage{width:min(980px,100%);margin-top:40px;position:relative}
+.hero-stage .glow{position:absolute;inset:auto 8% -30% 8%;height:60%;background:radial-gradient(closest-side,rgba(110,150,255,.45),transparent);filter:blur(30px)}
+.hero-stage .media{position:relative;aspect-ratio:16/9;max-width:100%}
+.hero-stage .media img,.hero-stage .media video{object-fit:cover;border-radius:18px}
+.hero-stage .media video{position:absolute;inset:0;z-index:2;width:100%;height:100%;opacity:0;transition:opacity .8s ease}
+.hero-stage .media.playing video{opacity:1}
 
-        /* Category Bar */
-        .category-bar { display: flex; justify-content: center; gap: 40px; padding: 20px; background: var(--dark-grey); border-bottom: 1px solid #333; flex-wrap: wrap; }
-        .category-bar a { font-weight: 700; font-size: 12px; color: var(--gold); text-transform: uppercase; text-decoration: none; letter-spacing: 1px; transition: 0.3s; }
-        .category-bar a:hover { color: var(--white); }
-        
-        /* Product Grid */
-        .section-title { text-align: center; margin-top: 60px; font-size: 28px; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; border-bottom: 3px solid var(--gold); display: inline-block; width: 100%; padding-bottom: 15px; color: var(--text); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 50px 8%; background-color: var(--black); }
-        
-        /* Cards */
-        .card { background: var(--card-bg); border-radius: 12px; padding: 30px; text-align: center; transition: all 0.4s ease; display: flex; flex-direction: column; justify-content: space-between; height: 100%; border: 1px solid #333; position: relative; box-sizing: border-box; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.5); border-color: var(--gold); }
-        
-        /* FIXED IMAGE CSS */
-        .card img { 
-            width: 100%; 
-            height: 200px; 
-            object-fit: contain; 
-            margin-bottom: 20px; 
-            background-color: var(--white); /* Pure white background to make products pop */
-            border-radius: 8px; 
-            padding: 15px; 
-            box-sizing: border-box; 
-            transition: 0.4s; 
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1); 
-        }
-        .card:hover img { transform: scale(1.03); }
-        
-        /* Bestseller Badge */
-        .badge { position: absolute; top: 15px; right: -1px; background: var(--gold); color: black; font-size: 10px; font-weight: 800; padding: 5px 15px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); border-radius: 10px 0 0 10px; z-index: 10; }
-        
-        .card h3 { font-size: 18px; margin: 0 0 10px 0; font-weight: 700; color: var(--text); }
-        
-        /* Modern Specs Grid */
-        .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 15px; }
-        .mini-spec { background: #222; padding: 8px 6px; border-radius: 4px; font-size: 11px; font-weight: 500; color: #ccc; border: 1px solid #333; display: flex; align-items: center; justify-content: center; gap: 5px; }
-        
-        .feature-list { text-align: left; font-size: 12px; color: #aaa; margin-bottom: 15px; background: #1a1a1a; padding: 12px; border-radius: 6px; border: 1px solid #333; font-weight: 300; }
-        .feature-list p { margin: 6px 0; line-height: 1.4; }
-        .feature-list strong { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
-        .feature-list ul { margin: 5px 0 0 0; padding-left: 20px; }
-        .feature-list li { margin-bottom: 5px; }
-        
-        .price { font-size: 28px; font-weight: 900; margin: 15px 0; color: var(--text); }
-        
-        .add-btn { background: var(--card-bg); color: var(--gold); padding: 14px; border-radius: 6px; font-weight: 700; text-transform: uppercase; font-size: 14px; border: 2px solid var(--gold); cursor: pointer; width: 100%; transition: 0.3s; letter-spacing: 1px; }
-        .add-btn:hover { background: var(--gold); color: black; }
+/* ---------- media (photo with drawn fallback) ---------- */
+.media{position:relative;display:grid;place-items:center}
+.media img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
+.media .art{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-3)}
+.media .art svg{width:82%;height:82%}
+.media.loaded .art{display:none}
 
-        /* Checkout Modal */
-        #checkout-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; backdrop-filter: blur(5px); overflow-y: auto; }
-        .modal-content { background: #1a1a1a; border: 1px solid #444; color: var(--text); width: 95%; max-width: 550px; margin: 40px auto; padding: 35px; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-        .cart-item-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #333; font-weight: 500; font-size: 14px; }
-        
-        .invoice-details { background: #111; padding: 20px; border-radius: 8px; margin-top: 15px; border: 1px solid #333; }
-        .summary-row { display: flex; justify-content: space-between; font-size: 14px; color: #aaa; margin-bottom: 8px; }
-        .total-row { display: flex; justify-content: space-between; font-weight: 800; font-size: 22px; border-top: 1px solid #444; padding-top: 15px; margin-top: 10px; color: var(--gold); }
-        
-        input { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid #444; border-radius: 6px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-size: 14px; background-color: #222; color: var(--text); outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--gold); }
-        
-        .warning-text { background: rgba(207, 19, 34, 0.1); border: 1px solid #cf1322; color: #ff4d4d; padding: 12px; margin-top: 20px; border-radius: 6px; font-size: 11px; font-weight: 700; text-align: center; text-transform: uppercase; }
-        .cod-badge { background: #222; padding: 12px; border-radius: 6px; font-size: 12px; color: var(--gold); font-weight: 800; text-align: center; letter-spacing: 1px; border: 1px dashed var(--gold); margin-bottom: 20px; }
+/* ---------- trust row ---------- */
+.trust{border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding-block:28px}
+.trust .t{display:flex;gap:12px;align-items:flex-start;padding:4px 20px;border-left:1px solid var(--line)}
+.trust .t:first-child{border-left:0;padding-left:0}
+.trust svg{flex:none;width:26px;height:26px;color:var(--accent)}
+.trust b{display:block;font-size:15px;font-weight:600}
+.trust small{display:block;color:var(--ink-2);font-size:13px;line-height:1.4}
+.trust a{color:var(--accent);text-decoration:none}
+@media (max-width:860px){.trust .wrap{grid-template-columns:1fr 1fr;gap:20px 0}.trust .t:nth-child(3){border-left:0;padding-left:0}}
+@media (max-width:440px){.trust .wrap{grid-template-columns:1fr}.trust .t{border-left:0;padding-left:0}}
 
-        /* Floating Utilities */
-        .float-wa { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; border-radius: 50px; padding: 12px 20px; font-weight: bold; text-decoration: none; display: flex; align-items: center; z-index: 1500; font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: 0.3s; }
-        .float-wa:hover { transform: translateY(-5px); }
-        
-        .back-to-top { position: fixed; bottom: 90px; right: 30px; background: #222; color: white; border: 1px solid #444; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; z-index: 1000; display: none; font-size: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: 0.3s; }
-        .back-to-top:hover { background: var(--gold); color: black; border-color: var(--gold); }
+/* ---------- category tiles ---------- */
+.cats{padding-block:72px 24px}
+.cats h2,.sec-head h2{font-size:clamp(30px,4.4vw,48px);font-weight:700}
+.cats .sub{color:var(--ink-2);margin:8px 0 28px;font-size:18px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{display:grid;grid-template-rows:auto 1fr;gap:6px;padding:22px 20px 0;border-radius:var(--r-card);background:var(--ground);text-decoration:none;overflow:hidden;transition:transform .25s ease}
+.tile:hover{transform:translateY(-4px)}
+.tile b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.tile small{display:block;color:var(--ink-2);font-size:14px}
+.tile .media{aspect-ratio:4/3;margin-top:10px}
+@media (max-width:860px){.tiles{grid-template-columns:1fr 1fr}}
 
-        #toast { visibility: hidden; min-width: 250px; background-color: var(--gold); color: black; text-align: center; border-radius: 6px; padding: 16px; position: fixed; z-index: 3000; left: 50%; bottom: 30px; transform: translateX(-50%); font-weight: bold; opacity: 0; transition: 0.5s; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
-        #toast.show { visibility: visible; opacity: 1; bottom: 50px; }
+/* ---------- product sections ---------- */
+section.cat{padding-block:72px}
+section.cat:nth-of-type(even){background:var(--ground)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head p{margin:8px 0 0;color:var(--ink-2);font-size:18px;max-width:46ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:34px;padding:0 14px;border-radius:var(--r-pill);border:1px solid var(--line);background:var(--surface);font-size:14px;cursor:pointer;color:var(--ink-2)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{position:relative;display:grid;grid-template-rows:auto auto 1fr auto;background:var(--surface);border-radius:var(--r-card);padding:18px 18px 18px;border:1px solid var(--line);transition:box-shadow .2s ease,transform .2s ease}
+section.cat:nth-of-type(even) .card{border-color:transparent}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.card .media{aspect-ratio:4/3;border-radius:14px;background:var(--ground);margin-bottom:16px;overflow:hidden}
+section.cat:nth-of-type(even) .card .media{background:var(--ground)}
+.badge{position:absolute;z-index:2;top:28px;left:28px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:var(--r-pill);background:var(--surface);color:var(--deal);box-shadow:var(--shadow)}
+.card .model{font-family:var(--f-mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.card h3{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:2px 0 8px}
+.card ul{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:4px;font-size:14px;color:var(--ink-2)}
+.card ul li{display:flex;gap:8px}
+.card ul li::before{content:"";flex:none;width:4px;height:4px;border-radius:50%;background:var(--ink-3);margin-top:9px}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid var(--line)}
+.price{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.price small{display:block;font-size:11px;font-weight:400;color:var(--ink-3);letter-spacing:0;font-family:var(--f-body)}
+.add{height:38px;padding:0 18px;border-radius:var(--r-pill);border:0;background:var(--accent);color:var(--accent-ink);font-weight:500;font-size:14px;cursor:pointer;transition:transform .15s ease}
+.add:active{transform:scale(.95)}
+.add.added{background:var(--ok)}
 
-        footer { background: var(--black); color: white; padding: 60px 20px; text-align: center; border-top: 1px solid #333; }
-        footer p { margin: 5px 0; font-size: 13px; color: #888; }
-    </style>
+/* ---------- service band ---------- */
+.service{background:var(--hero);color:var(--hero-ink)}
+.service .wrap{padding-block:80px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.service h2{font-size:clamp(32px,4.6vw,52px);font-weight:700}
+.service p{color:var(--hero-ink-2);font-size:18px;max-width:42ch}
+.steps{display:grid;gap:0;border-top:1px solid #2a2c33}
+.steps div{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid #2a2c33}
+.steps .n{font-family:var(--f-mono);color:var(--hero-ink-2);font-size:14px;padding-top:2px}
+.steps b{display:block;font-weight:600}
+.steps small{color:var(--hero-ink-2);font-size:14px}
+@media (max-width:860px){.service .wrap{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);background:var(--ground);color:var(--ink-2);font-size:14px}
+footer .wrap{padding-block:48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{margin:0 0 10px;color:var(--ink);font-size:13px;font-weight:600}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{color:var(--ink)}
+footer .legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:12px;color:var(--ink-3)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+/* ---------- floating whatsapp ---------- */
+.fab{position:fixed;z-index:40;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 20px 0 16px;border-radius:var(--r-pill);background:var(--wa);color:#fff;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 8px 28px rgba(31,168,85,.38)}
+.fab svg{width:22px;height:22px}
+
+/* ---------- cart drawer ---------- */
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.38);opacity:0;pointer-events:none;transition:opacity .25s ease}
+.scrim.open{opacity:1;pointer-events:auto}
+aside.cart{position:fixed;z-index:80;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);display:grid;grid-template-rows:auto 1fr auto;transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.8,.2,1);box-shadow:-20px 0 60px rgba(0,0,0,.18);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+aside.cart.open{transform:none}
+.cart-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-size:22px;font-weight:700}
+.cart-body{overflow-y:auto;padding:8px 20px 20px;min-height:0}
+.empty{text-align:center;color:var(--ink-2);padding:60px 10px}
+.empty b{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.line .media{width:64px;height:64px;border-radius:12px;background:var(--ground);overflow:hidden}
+.line .media .art svg{width:70%;height:70%}
+.line b{display:block;font-size:15px;font-weight:600}
+.line small{color:var(--ink-3);font-size:12px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:var(--r-pill);margin-top:6px}
+.qty button{width:30px;height:28px;border:0;background:transparent;cursor:pointer;font-size:16px;color:var(--ink-2)}
+.qty span{min-width:22px;text-align:center;font-size:14px}
+.line .amt{text-align:right;font-weight:600;font-size:15px}
+.cart-foot{border-top:1px solid var(--line);padding:16px 20px 20px;display:grid;gap:12px;background:var(--ground)}
+.totals{display:grid;gap:4px;font-size:14px;color:var(--ink-2)}
+.totals div{display:flex;justify-content:space-between}
+.totals .grand{color:var(--ink);font-size:18px;font-weight:700;padding-top:6px;border-top:1px solid var(--line);margin-top:4px}
+.fields{display:grid;gap:8px}
+.fields input,.fields textarea{width:100%;font:inherit;font-size:15px;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.fields textarea{resize:vertical;min-height:60px}
+.cod{font-size:13px;color:var(--ink-2);display:flex;gap:8px;align-items:flex-start}
+.cod svg{flex:none;width:18px;height:18px;color:var(--ok);margin-top:1px}
+.order[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.hint{font-size:12px;color:var(--ink-3);text-align:center;margin:0}
+.toast{position:fixed;z-index:90;left:50%;bottom:calc(88px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:var(--r-pill);font-size:14px;opacity:0;pointer-events:none;transition:all .25s ease}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- lifestyle ---------- */
+.life{padding-block:24px 72px}
+.life-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 24px;flex-wrap:wrap;margin-bottom:24px}
+.life-head h2{font-size:clamp(30px,4.4vw,48px);font-weight:700}
+.life-head p{margin:8px 0 0;color:var(--ink-2);font-size:18px;max-width:44ch}
+.life-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.shot{position:relative;grid-column:span 2;border-radius:var(--r-card);overflow:hidden;background:var(--ground);text-decoration:none;color:#fff;aspect-ratio:4/3;max-width:100%}
+.shot.wide{grid-column:1/-1;aspect-ratio:21/9}
+.shot.half{grid-column:span 3}
+.shot .media{position:absolute;inset:0;color:var(--ink-3)}
+.shot .media img{object-fit:cover;transition:transform .6s ease}
+.shot:hover .media img{transform:scale(1.035)}
+.shot .cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:48px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.62))}
+.shot .cap b{display:block;font-family:var(--f-display);font-size:clamp(19px,2.2vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.shot .cap small{display:inline-flex;gap:6px;margin-top:6px;font-size:14px;color:rgba(255,255,255,.86)}
+.shot.wide .cap{padding:80px 32px 28px}
+.shot.wide .cap b{font-size:clamp(24px,3.6vw,40px);max-width:18ch}
+@media (max-width:860px){.shot,.shot.half{grid-column:span 3}.shot.wide{aspect-ratio:16/10}.shot:last-child{grid-column:1/-1;aspect-ratio:16/10}}
+@media (max-width:520px){.shot,.shot.half,.shot:last-child{grid-column:1/-1;aspect-ratio:4/3}.shot.wide{aspect-ratio:4/3}}
+</style>
+
 </head>
 <body>
+<div class="strip"><div class="wrap">
+  <span><b>Delivering in Surat</b> · same day</span>
+  <span>Cash on delivery</span>
+  <span>Factory-direct prices, no middleman</span>
+</div></div>
 
-    <a href="https://wa.me/919327678853?text=Hi,%20I%20have%20a%20question!" class="float-wa" target="_blank">💬 Chat</a>
-    <button class="back-to-top" id="backToTop" onclick="window.scrollTo(0,0)">↑</button>
-    
-    <div id="toast">Item added!</div>
-
-  <nav>
-    <div style="display: flex; gap: 15px;">
-        <a href="https://linktr.ee/heena_electronics.pvt.ltd" class="nav-brand-link" target="_blank">SOCIALS</a>
-        <!-- Link to the Yanshi Creator portal -->
-        <a href="https://yanshi-creator.github.io/Complaint-form/index.html" class="nav-brand-link" target="_blank">SERVICE 🛠️</a>
-        <a href="YV-CAT.pdf" class="nav-brand-link" target="_blank">CATALOG 📥</a>
+<nav class="top" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="YV.india home">YV<span>.</span>india</a>
+    <div class="navlinks">
+      <a href="#tvs">Televisions</a>
+      <a href="#speakers">Speakers</a>
+      <a href="#soundbars">Soundbars</a>
+      <a href="#kitchen">Kitchen</a>
+      <a href="#service">Service</a>
+      <a href="https://yvindia.com/YV-CAT.pdf" target="_blank" rel="noopener">Catalog</a>
     </div>
-    </nav>
-
-    <div class="hero">
-        <img src="logo.png" alt="YV India Logo">
-        <h1>Innovation & Style</h1>
-        <p style="font-weight: 300; letter-spacing: 2px;">A Unit of Heena Electronics Pvt Ltd</p>
-        <p style="color: #ff4d4d; font-weight: 800; border: 1px solid #ff4d4d; padding: 5px 15px; border-radius: 5px; margin-top: 15px; font-size: 12px; background: rgba(255, 77, 77, 0.1);">
-            📍 DELIVERY ONLY IN SURAT FOR NOW
-        </p>
+    <div class="navright">
+      <a class="iconbtn" href="https://linktr.ee/heena_electronics.pvt.ltd" target="_blank" rel="noopener" aria-label="Our socials">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.8 2.5 15.2 0 18M12 3c-2.5 2.8-2.5 15.2 0 18"/></svg>
+      </a>
+      <button class="iconbtn" id="cartBtn" aria-label="Open bag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" stroke-linecap="round"/></svg>
+        <span class="count" id="cartCount" hidden>0</span>
+      </button>
     </div>
+  </div>
+</nav>
 
-    <!-- REMOVED "MADE IN SURAT" -->
-    <div class="trust-banner">
-        Factory Direct Pricing • No Middleman • Genuine Warranty
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">YV 55 TZ-OS</div>
+    <h1>The big picture.<br><em>Factory price.</em></h1>
+    <p class="lede">55-inch 4K, Tizen OS, bezel-less design. Made by us in Surat, sold by us.</p>
+    <div class="price-line">From <b class="mono">₹28,940</b></div>
+    <div class="ctas">
+      <button class="btn primary" data-add="YV 55 TZ-OS">Add to bag</button>
+      <a class="btn ghost" href="#tvs">See all TVs</a>
     </div>
+    <div class="hero-stage">
+      <div class="glow"></div>
+      <div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_df535c1a-9cd9-49a4-8963-71c24bd0b342_min.webp" data-art="tvHero" data-video="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_172319_a24283e8-d20f-4efe-b7ea-6afa8d5581e3.mp4"></div>
+    </div>
+  </div>
+</header>
 
-    <div class="category-bar">
-        <a href="#tvs">Televisions</a>
-        <a href="#speakers">Speakers</a>
-        <a href="#soundbars">Soundbars</a>
-        <a href="#cooktops">Appliances</a>
-    </div>
+<div class="trust"><div class="wrap">
+  <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 20V10l5 3V10l5 3V6l8 4v10H3Z"/><path d="M7 17h2M12 17h2M17 17h1"/></svg><div><b>Factory direct</b><small>Heena Electronics, est. 2017</small></div></div>
+  <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M2 7h11v9H2zM13 10h4l4 3v3h-8"/><circle cx="6" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><div><b>Same-day delivery</b><small>Anywhere in Surat</small></div></div>
+  <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.4-.6-.6-2.4 2.4-2.4Z"/></svg><div><b>Local install &amp; repair</b><small><a href="https://yanshi-creator.github.io/Complaint-form/index.html" target="_blank" rel="noopener">Book a service visit</a></small></div></div>
+  <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke-linecap="round"/></svg><div><b>Genuine warranty</b><small>GST invoice with every order</small></div></div>
+</div></div>
 
-    <div class="trust-grid">
-        <div class="trust-box">
-            <span>🏭</span>
-            <p>FACTORY DIRECT</p>
-        </div>
-        <a href="https://yanshi-creator.github.io/Complaint-form/index.html" target="_blank" style="text-decoration: none;">
-    <div class="trust-box" style="cursor: pointer;">
-        <span>🛠️</span>
-        <p>LOCAL SERVICE</p>
-        <p style="font-size: 8px; color: #aaa; margin-top: -2px;">INSTALLATION & REPAIR</p>
+<section class="cats wrap" aria-labelledby="catsTitle">
+  <h2 id="catsTitle">Shop by category.</h2>
+  <p class="sub">Everything for the living room and the kitchen.</p>
+  <div class="tiles">
+    <a class="tile" href="#tvs"><div><b>Televisions</b><small>24″ to 55″ 4K · from ₹6,859</small></div><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp" data-art="tv"></div></a>
+    <a class="tile" href="#speakers"><div><b>Party speakers</b><small>8″ to 15″ · from ₹11,250</small></div><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171313_b718ff7a-90ce-456e-b0b1-2f651086956c_min.webp" data-art="speaker"></div></a>
+    <a class="tile" href="#soundbars"><div><b>Soundbars</b><small>50W to 320W · from ₹5,000</small></div><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_b1fdf59c-1733-44a3-9dac-d50672ffaafa_min.webp" data-art="soundbar"></div></a>
+    <a class="tile" href="#kitchen"><div><b>Cooktops</b><small>Induction &amp; infrared · from ₹3,380</small></div><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171305_bac9a614-207c-49ef-a9ed-24fc8ccc3113_min.webp" data-art="cooktop"></div></a>
+  </div>
+</section>
+
+
+<section class="life wrap" aria-labelledby="lifeTitle">
+  <div class="life-head">
+    <div><h2 id="lifeTitle">Made for the way you live.</h2><p>Movie nights, mehendi parties, Sunday cooking. YV is already part of homes across Surat.</p></div>
+  </div>
+  <div class="life-grid">
+    <a class="shot wide" href="#tvs"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171812_09923cdd-593f-4bd3-a117-6bea12dcfe92_min.webp" data-art="tvHero"></div><div class="cap"><b>Evenings look better on a bigger screen.</b><small>Shop Smart TVs →</small></div></a>
+    <a class="shot half" href="#tvs"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171812_e9ff4ab1-9125-4924-833f-614c3e3f3f57_min.webp" data-art="tv"></div><div class="cap"><b>All your apps. One remote.</b><small>From ₹8,759 →</small></div></a>
+    <a class="shot half" href="#soundbars"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171811_11496a3e-7e8a-4735-ba8f-4802c2fa58bb_min.webp" data-art="soundbarW"></div><div class="cap"><b>Cinema sound, on your sofa.</b><small>Soundbars from ₹5,000 →</small></div></a>
+    <a class="shot" href="#speakers"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171813_34f348a1-1310-45cf-a796-c071037de910_min.webp" data-art="speaker"></div><div class="cap"><b>Bring the baraat energy.</b><small>Party speakers →</small></div></a>
+    <a class="shot" href="#speakers"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171812_f9121f6a-bd37-4c33-b389-d4293f3a8075_min.webp" data-art="speaker"></div><div class="cap"><b>Roll the party anywhere.</b><small>Trolley speakers →</small></div></a>
+    <a class="shot" href="#kitchen"><div class="media" data-img="https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171812_7f926f86-ea8e-404a-be95-eefa226cfd67_min.webp" data-art="cooktop"></div><div class="cap"><b>Dinner, without the gas cylinder.</b><small>Cooktops from ₹3,380 →</small></div></a>
+  </div>
+</section>
+<section class="cat" id="tvs" aria-labelledby="tvsTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2 id="tvsTitle">Televisions.</h2><p>Smart, frameless and 4K. Every screen built in our own factory.</p></div>
+      <div class="chips" role="group" aria-label="Filter by screen size" data-filter="tvs">
+        <button class="chip" aria-pressed="true" data-v="all">All</button>
+        <button class="chip" aria-pressed="false" data-v="24">24″</button>
+        <button class="chip" aria-pressed="false" data-v="32">32″</button>
+        <button class="chip" aria-pressed="false" data-v="40">40–43″</button>
+        <button class="chip" aria-pressed="false" data-v="55">55″ 4K</button>
+      </div>
     </div>
+    <div class="grid" data-grid="tvs"></div>
+  </div>
+</section>
+
+<section class="cat" id="speakers" aria-labelledby="spTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2 id="spTitle">Party speakers.</h2><p>RGB lights, TWS pairing, mic and guitar inputs. On wheels, so the party moves with you.</p></div>
+      <div class="chips" role="group" aria-label="Filter speakers" data-filter="speakers">
+        <button class="chip" aria-pressed="true" data-v="all">All</button>
+        <button class="chip" aria-pressed="false" data-v="party">Party</button>
+        <button class="chip" aria-pressed="false" data-v="trolley">Trolley</button>
+      </div>
+    </div>
+    <div class="grid" data-grid="speakers"></div>
+  </div>
+</section>
+
+<section class="cat" id="soundbars" aria-labelledby="sbTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2 id="sbTitle">Soundbars.</h2><p>HDMI ARC and optical in. Plug into your TV and hear what you were missing.</p></div>
+      <div class="chips" role="group" aria-label="Filter soundbars" data-filter="soundbars">
+        <button class="chip" aria-pressed="true" data-v="all">All</button>
+        <button class="chip" aria-pressed="false" data-v="woofer">With woofer</button>
+        <button class="chip" aria-pressed="false" data-v="solo">Standalone</button>
+      </div>
+    </div>
+    <div class="grid" data-grid="soundbars"></div>
+  </div>
+</section>
+
+<section class="cat" id="kitchen" aria-labelledby="kTitle">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><h2 id="kTitle">Cooktops.</h2><p>Induction and infrared, with preset Indian menus and child lock.</p></div>
+    </div>
+    <div class="grid" data-grid="kitchen"></div>
+  </div>
+</section>
+
+<section class="service" id="service" aria-labelledby="svTitle">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Service &amp; support</div>
+      <h2 id="svTitle" style="margin-top:10px">We install it.<br>We fix it. Locally.</h2>
+      <p>Our own technicians in Surat handle installation and repairs. No call-centre runaround.</p>
+      <div class="ctas" style="justify-content:flex-start">
+        <a class="btn primary" href="https://yanshi-creator.github.io/Complaint-form/index.html" target="_blank" rel="noopener">Book a service visit</a>
+        <a class="btn ghost" href="https://wa.me/919327678853?text=Hi%2C%20I%20have%20a%20question%21" target="_blank" rel="noopener">Ask on WhatsApp</a>
+      </div>
+    </div>
+    <div class="steps" aria-label="How ordering works">
+      <div><span class="n">01</span><div><b>Add to bag</b><small>Pick your products. GST is calculated for you.</small></div></div>
+      <div><span class="n">02</span><div><b>Send on WhatsApp</b><small>Your order goes straight to our store team.</small></div></div>
+      <div><span class="n">03</span><div><b>Pay on delivery</b><small>Same-day delivery in Surat. Pay cash when it arrives.</small></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top" style="padding:0;margin-bottom:10px">YV<span>.</span>india</a>
+      <div>A unit of Heena Electronics Pvt Ltd</div>
+      <div>37–38 Ambika Industrial Estate, Saroli, Surat</div>
+      <div class="mono" style="margin-top:6px">+91 93276 78853</div>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#tvs">Televisions</a><a href="#speakers">Speakers</a><a href="#soundbars">Soundbars</a><a href="#kitchen">Cooktops</a>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <a href="https://yanshi-creator.github.io/Complaint-form/index.html" target="_blank" rel="noopener">Service &amp; repair</a>
+      <a href="https://yvindia.com/YV-CAT.pdf" target="_blank" rel="noopener">Download catalog</a>
+      <a href="https://linktr.ee/heena_electronics.pvt.ltd" target="_blank" rel="noopener">Socials</a>
+    </div>
+    <div class="legal">© 2026 YV.india. All rights reserved. Prices in INR; CGST 9% + SGST 9% added at checkout.</div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/919327678853?text=Hi%2C%20I%20have%20a%20question%21" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.3Z"/></svg>
+  Chat
 </a>
-        </div>
-        <div class="trust-box">
-            <span>🚛</span>
-            <p>SAME DAY DELIVERY</p>
-        </div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Your bag" aria-hidden="true">
+  <div class="cart-head">
+    <h2>Your bag</h2>
+    <button class="iconbtn" id="cartClose" aria-label="Close bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot" id="cartFoot" hidden>
+    <div class="totals mono">
+      <div><span>Subtotal</span><span id="tSub">₹0</span></div>
+      <div><span>CGST 9%</span><span id="tC">₹0</span></div>
+      <div><span>SGST 9%</span><span id="tS">₹0</span></div>
+      <div class="grand"><span>Total</span><span id="tG">₹0</span></div>
     </div>
+    <form class="fields" id="orderForm" novalidate>
+      <input id="fName" autocomplete="name" placeholder="Your name" aria-label="Your name">
+      <input id="fPhone" autocomplete="tel" inputmode="tel" placeholder="Mobile number" aria-label="Mobile number">
+      <textarea id="fAddr" autocomplete="street-address" placeholder="Delivery address in Surat" aria-label="Delivery address"></textarea>
+    </form>
+    <div class="cod"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg><span>Cash on delivery. Your order is confirmed once you tap <b>Send</b> in WhatsApp.</span></div>
+    <a class="btn wa order" id="orderBtn" href="#" target="_blank" rel="noopener" aria-disabled="true">Place order on WhatsApp</a>
+    <p class="hint" id="orderHint">Add your name, mobile and address to continue.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <h2 id="tvs" class="section-title">Smart Televisions</h2>
-    <div class="grid" id="product-grid">
-        
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-2402">
-            <h3>YV-2402</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 24"</div>
-                <div class="mini-spec"><span>📺</span> Standard</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>HD Ready Display</li><li>Vivid Colors & A+ Panel</li><li>Low Power Consumption</li><li>HDMI & USB Inputs</li></ul>
-            </div>
-            <div class="price">₹6,859</div>
-            <button class="add-btn" onclick="addToCart('YV-2402', 6859)">Add to Cart</button>
-        </div>
+<script>
+(function(){
+const IMG_BASE = "";
+const WA = "919327678853";
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-2402 S">
-            <h3>YV-2402 S</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 24"</div>
-                <div class="mini-spec"><span>📶</span> Smart Wi-Fi</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Built-in Wi-Fi & Apps</li><li>Screen Mirroring Support</li><li>Vivid Colors A+ Panel</li><li>20W Stereo Sound</li></ul>
-            </div>
-            <div class="price">₹8,759</div>
-            <button class="add-btn" onclick="addToCart('YV-2402 S', 8759)">Add to Cart</button>
-        </div>
+const P = [
+  // Televisions
+  {id:"YV-2402",cat:"tvs",tag:"24",name:"24″ HD Ready",spec:"24″ · Standard",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:6859,f:["HD Ready display","Vivid colours, A+ panel","Low power consumption","HDMI & USB inputs"]},
+  {id:"YV-2402 S",cat:"tvs",tag:"24",name:"24″ Smart",spec:"24″ · Smart Wi-Fi",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:8759,f:["Built-in Wi-Fi & apps","Screen mirroring","Vivid colours, A+ panel","20W stereo sound"]},
+  {id:"YV-3202S FL",cat:"tvs",tag:"32",name:"32″ Frameless",spec:"32″ · Frameless",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:10415,f:["Edge-to-edge frameless design","Wi-Fi & Smart OS","Screen mirroring / cast","20W stereo audio"]},
+  {id:"YV-3212S FL",cat:"tvs",tag:"32",name:"32″ Frameless Quad-Core",spec:"32″ · Frameless",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:10890,badge:"Bestseller",f:["Premium frameless display","Quad-core processor","All popular apps","Screen mirroring / cast"]},
+  {id:"YV-3202S GLASS",cat:"tvs",tag:"32",name:"32″ Toughened Glass",spec:"32″ · Glass protected",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:11093,f:["Toughened glass protection","Smart OS with apps","Built-in Wi-Fi","High-fidelity audio"]},
+  {id:"YV 40\" LED FL",cat:"tvs",tag:"40",name:"40″ Full HD Frameless",spec:"40″ · Frameless",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:14045,f:["Full HD frameless panel","Wi-Fi & Smart OS","Popular streaming apps","20W stereo sound"]},
+  {id:"YV-4212S",cat:"tvs",tag:"40",name:"42″ Full HD Smart",spec:"42″ · Smart",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:14520,f:["Full HD resolution","Smart OS with Wi-Fi","Screen mirroring","Energy saving mode"]},
+  {id:"YV-4302S FL",cat:"tvs",tag:"40",name:"43″ Ultra-slim Frameless",spec:"43″ · Frameless",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:15741,f:["Ultra-slim frameless edge","Smart OS interface","Wi-Fi & cast","20W high-fidelity audio"]},
+  {id:"YV-4312S",cat:"tvs",tag:"40",name:"43″ Quad-Core",spec:"43″ · Quad-core",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:16216,f:["Full HD crystal-clear panel","Quad-core processor","All popular apps built in","Screen mirroring"]},
+  {id:"YV-4312SBT",cat:"tvs",tag:"40",name:"43″ Voice Remote",spec:"43″ · Bluetooth voice",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:17031,f:["Bluetooth remote","Voice assistant","Wi-Fi & apps","Full HD resolution"]},
+  {id:"YV-4312S K OS",cat:"tvs",tag:"40",name:"43″ WebOS",spec:"43″ · WebOS",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:18727,f:["WebOS interface","Magic Remote compatible","Full HD resolution","Popular apps & Wi-Fi"]},
+  {id:"YV 55 TZ-OS",cat:"tvs",tag:"55",name:"55″ 4K Tizen",spec:"55″ 4K · Tizen OS",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171311_b62967d1-55a2-48e8-b710-d9cbd3693ad2_min.webp",art:"tv",price:28940,badge:"Premium",f:["4K Ultra HD","Official Tizen OS","Bezel-less design","Cinematic audio"]},
+  // Speakers
+  {id:"YV-PS1202A MAX",cat:"speakers",tag:"party",name:"Party MAX 12",spec:"Dual 12″ · Dual mic",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171313_b718ff7a-90ce-456e-b0b1-2f651086956c_min.webp",art:"speaker",price:18200,badge:"Top rated",f:["RGB party lights & TWS","Bass & treble EQ","Wired/wireless mic & guitar in","Wheels for easy moving"]},
+  {id:"YV-PS1002A MAX",cat:"speakers",tag:"party",name:"Party MAX 10",spec:"Dual 10″ · Multicolour",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171313_b718ff7a-90ce-456e-b0b1-2f651086956c_min.webp",art:"speaker",price:14150,f:["RGB party lights & TWS","Bass & treble EQ","Wired/wireless mic & guitar in","Wheels for easy moving"]},
+  {id:"YV-PS1002A Party",cat:"speakers",tag:"party",name:"Party 10",spec:"Dual 10″ · 12V DC",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171313_b718ff7a-90ce-456e-b0b1-2f651086956c_min.webp",art:"speaker",price:12350,f:["RGB party lights & TWS","Bass & treble EQ","Wired/wireless mic & guitar in","Runs on 12V DC"]},
+  {id:"YV-PS0802A Party",cat:"speakers",tag:"party",name:"Party 8 Pink",spec:"Dual 8″ · Pink edition",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171313_b718ff7a-90ce-456e-b0b1-2f651086956c_min.webp",art:"speaker",price:11250,f:["RGB party lights & TWS","Bass & treble EQ","Wired/wireless mic & guitar in","Wheels for easy moving"]},
+  {id:"YV-TS1201A Trolley",cat:"speakers",tag:"trolley",name:"Trolley 12",spec:"Trolley speaker",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171314_b632be97-541b-4a1a-b4d9-b0ff2411942d_min.webp",art:"speaker",price:11250,f:["Bass & treble EQ, guitar in","1 wired + 1 wireless mic","RGB lights, TWS","Handle & wheels"]},
+  {id:"YV-TS1201AF Trolley",cat:"speakers",tag:"trolley",name:"Trolley 12 F",spec:"Trolley speaker",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171314_b632be97-541b-4a1a-b4d9-b0ff2411942d_min.webp",art:"speaker",price:11650,f:["Bass & treble EQ, guitar in","1 wired + 1 wireless mic","RGB lights, TWS","Handle & wheels"]},
+  {id:"YV-TS1501A Trolley",cat:"speakers",tag:"trolley",name:"Trolley 15",spec:"15″ trolley speaker",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171314_b632be97-541b-4a1a-b4d9-b0ff2411942d_min.webp",art:"speaker",price:12500,f:["Bass & treble EQ, guitar in","1 wired + 1 wireless mic","RGB lights, TWS","Handle & wheels"]},
+  {id:"YV-TS1501AF Trolley",cat:"speakers",tag:"trolley",name:"Trolley 15 F",spec:"15″ trolley speaker",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171314_b632be97-541b-4a1a-b4d9-b0ff2411942d_min.webp",art:"speaker",price:12500,f:["Bass & treble EQ, guitar in","1 wired + 1 wireless mic","RGB lights, TWS","Handle & wheels"]},
+  // Soundbars
+  {id:"YV-TSB5004A",cat:"soundbars",tag:"solo",name:"Soundbar 50",spec:"50W · Standalone",img:"no-woofer.png",art:"soundbar",price:5000,f:["HDMI ARC & optical in","USB, AUX, LED display","Media volume control"]},
+  {id:"YV-TSB6004A",cat:"soundbars",tag:"solo",name:"Soundbar 60",spec:"60W · Standalone",img:"no-woofer.png",art:"soundbar",price:5000,f:["HDMI ARC & optical in","USB, AUX, LED display","Media volume control"]},
+  {id:"YV-TSB8006A-WL",cat:"soundbars",tag:"solo",name:"Soundbar 80",spec:"80W · Standalone",img:"no-woofer.png",art:"soundbar",price:6200,f:["HDMI ARC & optical in","USB, AUX, LED display","Media volume control"]},
+  {id:"YV-SBS5004A",cat:"soundbars",tag:"woofer",name:"Soundbar + Woofer 200",spec:"100W + 100W",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_b1fdf59c-1733-44a3-9dac-d50672ffaafa_min.webp",art:"soundbarW",price:7350,f:["Separate subwoofer","HDMI ARC & optical in","USB, AUX, LED display"]},
+  {id:"YV-SBS6004A-WL",cat:"soundbars",tag:"woofer",name:"Soundbar + Woofer 240",spec:"120W + 120W",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_b1fdf59c-1733-44a3-9dac-d50672ffaafa_min.webp",art:"soundbarW",price:8450,f:["Separate subwoofer","HDMI ARC & optical in","USB, AUX, LED display"]},
+  {id:"YV-SBS8006A-WL",cat:"soundbars",tag:"woofer",name:"Soundbar + Woofer 320",spec:"160W + 160W",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171309_b1fdf59c-1733-44a3-9dac-d50672ffaafa_min.webp",art:"soundbarW",price:10150,badge:"Most power",f:["Separate subwoofer","HDMI ARC & optical in","USB, AUX, LED display"]},
+  // Kitchen
+  {id:"YV-EK07IND-1",cat:"kitchen",tag:"",name:"Induction 1600",spec:"1600W · Buttons",img:"YV-EK07IND-1 1600W.png",art:"cooktop",price:3380,f:["Preset Indian menus","Auto power-off","Push-button controls"]},
+  {id:"YV-EK08IND-2",cat:"kitchen",tag:"",name:"Induction Compact",spec:"1600W · Touch",img:"YV-EK08IND-2 1600W.png",art:"cooktop",price:3380,f:["Sleek glass top, timer","Spill-proof","Child lock"]},
+  {id:"YV-EK04INF-1",cat:"kitchen",tag:"",name:"Infrared 2000",spec:"2000W · Infrared",img:"YV-EK04INF-1 2000W.png",art:"cooktopIR",price:3525,badge:"Any utensil",f:["Works with all utensils","Smart touch panel","Variable temperature, easy clean"]},
+  {id:"YV-EK01IND",cat:"kitchen",tag:"",name:"Induction 2000",spec:"2000W · Touch & buttons",img:"https://d8j0ntlcm91z4.cloudfront.net/user_3LKCMxN475ezEvL6iudBeEURSV2/hf_20261102_171305_bac9a614-207c-49ef-a9ed-24fc8ccc3113_min.webp",art:"cooktop",price:3750,f:["Digital display","Multiple cooking modes","Overheat protection"]},
+];
+const byId = Object.fromEntries(P.map(p=>[p.id,p]));
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-3202S FL">
-            <h3>YV-3202S FL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 32"</div>
-                <div class="mini-spec"><span>🔲</span> Frameless</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Edge-to-Edge Frameless Design</li><li>Built-in Wi-Fi & Smart OS</li><li>Screen Mirroring / Cast</li><li>20W Stereo Audio</li></ul>
-            </div>
-            <div class="price">₹10,415</div>
-            <button class="add-btn" onclick="addToCart('YV-3202S FL', 10415)">Add to Cart</button>
-        </div>
+/* Drawn product art: shown until (or instead of) the real photo */
+const ART = {
+  tv:`<svg viewBox="0 0 200 140" fill="none"><rect x="14" y="12" width="172" height="98" rx="5" fill="currentColor" opacity=".9"/><rect x="18" y="16" width="164" height="90" rx="2" fill="url(#g1)"/><path d="M92 110h16l6 14H86z" fill="currentColor" opacity=".55"/><rect x="66" y="123" width="68" height="4" rx="2" fill="currentColor" opacity=".55"/><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b5ea8"/><stop offset=".55" stop-color="#6b4bb8"/><stop offset="1" stop-color="#e07a4f"/></linearGradient></defs></svg>`,
+  tvHero:`<svg viewBox="0 0 400 205" fill="none"><rect x="10" y="6" width="380" height="186" rx="6" fill="#1b1d22"/><rect x="14" y="10" width="372" height="178" rx="3" fill="url(#gh)"/><circle cx="290" cy="80" r="70" fill="#ffb27a" opacity=".35"/><circle cx="120" cy="140" r="90" fill="#7ab8ff" opacity=".25"/><rect x="150" y="192" width="100" height="3" rx="1.5" fill="#2a2d34"/><defs><linearGradient id="gh" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10224a"/><stop offset=".5" stop-color="#3d2a78"/><stop offset="1" stop-color="#b8583a"/></linearGradient></defs></svg>`,
+  speaker:`<svg viewBox="0 0 200 160" fill="none"><rect x="58" y="8" width="84" height="140" rx="10" fill="currentColor" opacity=".9"/><circle cx="100" cy="48" r="26" fill="none" stroke="#c3a6ff" stroke-width="3"/><circle cx="100" cy="48" r="12" fill="#111"/><circle cx="100" cy="108" r="26" fill="none" stroke="#7ab8ff" stroke-width="3"/><circle cx="100" cy="108" r="12" fill="#111"/><circle cx="72" cy="152" r="5" fill="currentColor" opacity=".6"/><circle cx="128" cy="152" r="5" fill="currentColor" opacity=".6"/></svg>`,
+  soundbar:`<svg viewBox="0 0 200 120" fill="none"><rect x="12" y="50" width="176" height="24" rx="12" fill="currentColor" opacity=".9"/><g fill="#7ab8ff" opacity=".8"><circle cx="40" cy="62" r="3"/><circle cx="56" cy="62" r="3"/><circle cx="144" cy="62" r="3"/><circle cx="160" cy="62" r="3"/></g><rect x="88" y="59" width="24" height="6" rx="3" fill="#ffb27a"/></svg>`,
+  soundbarW:`<svg viewBox="0 0 200 120" fill="none"><rect x="8" y="70" width="140" height="20" rx="10" fill="currentColor" opacity=".9"/><rect x="152" y="26" width="40" height="76" rx="6" fill="currentColor" opacity=".8"/><circle cx="172" cy="64" r="13" fill="none" stroke="#c3a6ff" stroke-width="2.5"/><g fill="#7ab8ff" opacity=".8"><circle cx="30" cy="80" r="2.5"/><circle cx="44" cy="80" r="2.5"/><circle cx="112" cy="80" r="2.5"/><circle cx="126" cy="80" r="2.5"/></g></svg>`,
+  cooktop:`<svg viewBox="0 0 200 140" fill="none"><path d="M30 34h140l14 74H16z" fill="currentColor" opacity=".9"/><ellipse cx="100" cy="68" rx="44" ry="20" fill="none" stroke="#7ab8ff" stroke-width="2.5" opacity=".8"/><ellipse cx="100" cy="68" rx="28" ry="12" fill="none" stroke="#7ab8ff" stroke-width="2" opacity=".55"/><rect x="70" y="94" width="60" height="7" rx="3.5" fill="#ffb27a" opacity=".85"/></svg>`,
+  cooktopIR:`<svg viewBox="0 0 200 140" fill="none"><path d="M30 34h140l14 74H16z" fill="currentColor" opacity=".9"/><ellipse cx="100" cy="68" rx="44" ry="20" fill="#ff6a3d" opacity=".55"/><ellipse cx="100" cy="68" rx="26" ry="11" fill="#ffb27a" opacity=".7"/><rect x="70" y="94" width="60" height="7" rx="3.5" fill="#ffb27a" opacity=".85"/></svg>`
+};
+let uid=0;
+function media(el,img,art){
+  const svg = ART[art].replace(/id="(g\w*)"/g,(m,a)=>`id="${a}${uid}"`).replace(/url\(#(g\w*)\)/g,(m,a)=>`url(#${a}${uid})`); uid++;
+  el.innerHTML = `<div class="art" aria-hidden="true">${svg}</div>`;
+  const im = new Image();
+  im.alt = ""; im.loading = "lazy"; im.decoding = "async";
+  im.onload = ()=>el.classList.add("loaded");
+  im.onerror = ()=>im.remove();
+  im.src = /^https?:/.test(img) ? img : IMG_BASE + encodeURI(img);
+  el.appendChild(im);
+}
+document.querySelectorAll(".media[data-img]").forEach(el=>media(el,el.dataset.img,el.dataset.art));
+/* hero loop video: plays only when motion is welcome, photo stays as poster */
+document.querySelectorAll(".media[data-video]").forEach(el=>{
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const v=document.createElement("video");
+  v.muted=true; v.loop=true; v.playsInline=true; v.autoplay=true; v.preload="metadata";
+  v.setAttribute("muted",""); v.setAttribute("playsinline",""); v.setAttribute("aria-hidden","true");
+  v.poster=el.dataset.img; v.src=el.dataset.video;
+  v.addEventListener("loadeddata",()=>{el.classList.add("loaded","playing");v.play().catch(()=>{});});
+  v.addEventListener("error",()=>v.remove());
+  el.appendChild(v);
+});
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-3202S GLASS">
-            <h3>YV-3202S GLASS</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 32"</div>
-                <div class="mini-spec"><span>🛡️</span> Toughened Glass</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Toughened Glass Protection</li><li>Smart TV OS with Apps</li><li>Built-in Wi-Fi Connectivity</li><li>High-Fidelity Audio</li></ul>
-            </div>
-            <div class="price">₹11,093</div>
-            <button class="add-btn" onclick="addToCart('YV-3202S Glass', 11093)">Add to Cart</button>
-        </div>
+const inr = n => "₹" + Math.round(n).toLocaleString("en-IN");
 
-        <div class="card product-card">
-            <div class="badge">Bestseller</div>
-            <img src="YV-TV-Lifestyle.png" alt="YV-3212S FL">
-            <h3>YV-3212S FL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 32"</div>
-                <div class="mini-spec"><span>🔲</span> Frameless</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Premium Frameless Display</li><li>Quad-Core Processor</li><li>All Popular Apps Supported</li><li>Screen Mirroring Cast</li></ul>
-            </div>
-            <div class="price">₹10,890</div>
-            <button class="add-btn" onclick="addToCart('YV-3212S FL', 10890)">Add to Cart</button>
-        </div>
+function card(p){
+  const c = document.createElement("article");
+  c.className="card"; c.dataset.tag=p.tag;
+  c.innerHTML = `${p.badge?`<span class="badge">${p.badge}</span>`:""}
+    <div class="media"></div>
+    <div><div class="model">${p.id}</div><h3>${p.name}</h3></div>
+    <ul>${p.f.map(x=>`<li>${x}</li>`).join("")}</ul>
+    <div class="buy"><div class="price mono">${inr(p.price)}<small>${p.spec}</small></div><button class="add" data-add="${p.id.replace(/"/g,"&quot;")}">Add</button></div>`;
+  media(c.querySelector(".media"),p.img,p.art);
+  return c;
+}
+document.querySelectorAll("[data-grid]").forEach(g=>{
+  P.filter(p=>p.cat===g.dataset.grid).forEach(p=>g.appendChild(card(p)));
+});
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV 40 LED FL">
-            <h3>YV 40" LED FL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 40"</div>
-                <div class="mini-spec"><span>🔲</span> Frameless</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Full HD Frameless Panel</li><li>Built-in Wi-Fi & Smart OS</li><li>Popular Streaming Apps</li><li>20W Stereo Sound</li></ul>
-            </div>
-            <div class="price">₹14,045</div>
-            <button class="add-btn" onclick="addToCart('YV 40 LED FL', 14045)">Add to Cart</button>
-        </div>
+document.querySelectorAll("[data-filter]").forEach(group=>{
+  const grid = document.querySelector(`[data-grid="${group.dataset.filter}"]`);
+  group.addEventListener("click",e=>{
+    const b=e.target.closest(".chip"); if(!b) return;
+    group.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+    grid.querySelectorAll(".card").forEach(c=>{c.hidden = !(b.dataset.v==="all"||c.dataset.tag===b.dataset.v)});
+  });
+});
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-4212S">
-            <h3>YV-4212S</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 42"</div>
-                <div class="mini-spec"><span>📶</span> Smart TV</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Full HD Display Resolution</li><li>Smart OS with Wi-Fi</li><li>Screen Mirroring Support</li><li>Energy Saving Mode</li></ul>
-            </div>
-            <div class="price">₹14,520</div>
-            <button class="add-btn" onclick="addToCart('YV-4212S', 14520)">Add to Cart</button>
-        </div>
+/* ---------- cart ---------- */
+let cart = {};
+try{ cart = JSON.parse(localStorage.getItem("yv-cart")||"{}")||{}; }catch(e){ cart={}; }
+Object.keys(cart).forEach(k=>{ if(!byId[k]) delete cart[k]; });
+const save = ()=>{ try{ localStorage.setItem("yv-cart",JSON.stringify(cart)); }catch(e){} };
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-4302S FL">
-            <h3>YV-4302S FL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 43"</div>
-                <div class="mini-spec"><span>🔲</span> Frameless</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Ultra-slim Frameless Edge</li><li>Smart TV OS Interface</li><li>Built-in Wi-Fi & Cast</li><li>20W High-Fidelity Audio</li></ul>
-            </div>
-            <div class="price">₹15,741</div>
-            <button class="add-btn" onclick="addToCart('YV-4302S FL', 15741)">Add to Cart</button>
-        </div>
+const $ = s=>document.querySelector(s);
+const cartEl=$("#cart"), scrim=$("#scrim");
+function openCart(){cartEl.classList.add("open");scrim.classList.add("open");cartEl.setAttribute("aria-hidden","false");$("#cartClose").focus();}
+function closeCart(){cartEl.classList.remove("open");scrim.classList.remove("open");cartEl.setAttribute("aria-hidden","true");}
+$("#cartBtn").onclick=openCart; $("#cartClose").onclick=closeCart; scrim.onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart();});
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-4312S">
-            <h3>YV-4312S</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 43"</div>
-                <div class="mini-spec"><span>⚡</span> Quad-Core</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Full HD Crystal Clear Panel</li><li>Quad-Core Processor</li><li>All Popular Apps Built-in</li><li>Screen Mirroring Support</li></ul>
-            </div>
-            <div class="price">₹16,216</div>
-            <button class="add-btn" onclick="addToCart('YV-4312S', 16216)">Add to Cart</button>
-        </div>
+let toastT;
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove("show"),1800);}
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-4312SBT">
-            <h3>YV-4312SBT</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 43"</div>
-                <div class="mini-spec"><span>🎙️</span> Voice BT</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Bluetooth Remote Control</li><li>Voice Assistant Enabled</li><li>Built-in Wi-Fi & Apps</li><li>Full HD Resolution</li></ul>
-            </div>
-            <div class="price">₹17,031</div>
-            <button class="add-btn" onclick="addToCart('YV-4312SBT', 17031)">Add to Cart</button>
-        </div>
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-add]"); if(!b) return;
+  const id=b.dataset.add; if(!byId[id]) return;
+  cart[id]=(cart[id]||0)+1; save(); render();
+  if(b.classList.contains("add")){ b.classList.add("added"); b.textContent="Added"; setTimeout(()=>{b.classList.remove("added");b.textContent="Add";},1200); }
+  toast(`${byId[id].name} added to bag`);
+});
 
-        <div class="card product-card">
-            <img src="YV-TV-Lifestyle.png" alt="YV-4312S WebOS">
-            <h3>YV-4312S K OS</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 43"</div>
-                <div class="mini-spec"><span>🌐</span> WebOS</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Premium WebOS Interface</li><li>Magic Remote Compatible</li><li>Full HD Resolution</li><li>Popular Apps & Wi-Fi</li></ul>
-            </div>
-            <div class="price">₹18,727</div>
-            <button class="add-btn" onclick="addToCart('YV-4312S WebOS', 18727)">Add to Cart</button>
-        </div>
+function totals(){
+  const sub = Object.entries(cart).reduce((s,[id,q])=>s+byId[id].price*q,0);
+  const c = sub*0.09, s = sub*0.09;
+  return {sub,c,s,g:sub+c+s};
+}
+function render(){
+  const ids=Object.keys(cart).filter(k=>cart[k]>0);
+  const n=ids.reduce((s,k)=>s+cart[k],0);
+  const cc=$("#cartCount"); cc.textContent=n; cc.hidden=n===0;
+  const body=$("#cartBody"); body.innerHTML="";
+  if(!ids.length){
+    body.innerHTML=`<div class="empty"><b>Your bag is empty.</b>Add a TV, speaker or cooktop to get started.</div>`;
+    $("#cartFoot").hidden=true; return;
+  }
+  ids.forEach(id=>{
+    const p=byId[id], q=cart[id];
+    const row=document.createElement("div"); row.className="line";
+    row.innerHTML=`<div class="media"></div><div><b>${p.name}</b><small class="mono">${p.id}</small><div><span class="qty"><button aria-label="Remove one" data-q="-1">−</button><span>${q}</span><button aria-label="Add one" data-q="1">+</button></span></div></div><div class="amt mono">${inr(p.price*q)}</div>`;
+    media(row.querySelector(".media"),p.img,p.art);
+    row.querySelectorAll("[data-q]").forEach(btn=>btn.onclick=()=>{cart[id]+=+btn.dataset.q; if(cart[id]<=0) delete cart[id]; save(); render();});
+    body.appendChild(row);
+  });
+  const t=totals();
+  $("#tSub").textContent=inr(t.sub); $("#tC").textContent=inr(t.c); $("#tS").textContent=inr(t.s); $("#tG").textContent=inr(t.g);
+  $("#cartFoot").hidden=false;
+  updateOrder();
+}
+function updateOrder(){
+  const name=$("#fName").value.trim(), phone=$("#fPhone").value.trim(), addr=$("#fAddr").value.trim();
+  const ok = name && phone.replace(/\D/g,"").length>=10 && addr && Object.keys(cart).length;
+  const btn=$("#orderBtn");
+  btn.setAttribute("aria-disabled", ok?"false":"true");
+  $("#orderHint").textContent = ok ? "Opens WhatsApp with your order ready to send." : "Add your name, mobile and address to continue.";
+  if(!ok){ btn.href="#"; return; }
+  const t=totals();
+  const lines = Object.entries(cart).map(([id,q])=>`• ${id} × ${q} = ${inr(byId[id].price*q)}`).join("\n");
+  const msg = `*New COD order – YV.india*\n\n${lines}\n\nSubtotal: ${inr(t.sub)}\nCGST 9%: ${inr(t.c)}\nSGST 9%: ${inr(t.s)}\n*Total: ${inr(t.g)}*\n\nName: ${name}\nMobile: ${phone}\nAddress: ${addr}\n\nPayment: Cash on delivery`;
+  btn.href = `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+}
+["#fName","#fPhone","#fAddr"].forEach(s=>$(s).addEventListener("input",updateOrder));
+$("#orderForm").addEventListener("submit",e=>e.preventDefault());
+render();
+})();
+</script>
 
-        <div class="card product-card">
-            <div class="badge">Premium</div>
-            <img src="YV-TV-Lifestyle.png" alt="YV 55 TZ-OS">
-            <h3>YV 55 TZ-OS</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>📏</span> 55" 4K</div>
-                <div class="mini-spec"><span>🖥️</span> Tizen OS</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>4K Ultra HD Resolution</li><li>Official Tizen OS</li><li>Bezel-less Premium Design</li><li>Cinematic Audio Output</li></ul>
-            </div>
-            <div class="price">₹28,940</div>
-            <button class="add-btn" onclick="addToCart('YV 55 TZ-OS', 28940)">Add to Cart</button>
-        </div>
-    </div>
-
-    <h2 id="speakers" class="section-title">YV Speakers</h2>
-    <div class="grid">
-        
-        <div class="card product-card">
-            <div class="badge">Top Rated</div>
-            <img src="YV-PS1202A MAX Party.png" alt="YV-PS1202A MAX">
-            <h3>YV-PS1202A MAX</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 12" Dual</div>
-                <div class="mini-spec"><span>🎙️</span> Dual Mic</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>RGB Party Lights & TWS</li><li>Equalizer Bass & Treble Control</li><li>Mic Wired/Wireless & Guitar</li><li>Wheels for Easy Mobility</li></ul>
-            </div>
-            <div class="price">₹18,200</div>
-            <button class="add-btn" onclick="addToCart('PS1202A MAX', 18200)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-PS1202A MAX Party.png" alt="YV-PS1002A MAX">
-            <h3>YV-PS1002A MAX</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 10" Dual</div>
-                <div class="mini-spec"><span>✨</span> Multicolour</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>RGB Party Lights & TWS</li><li>Equalizer Bass & Treble Control</li><li>Mic Wired/Wireless & Guitar</li><li>Wheels for Easy Mobility</li></ul>
-            </div>
-            <div class="price">₹14,150</div>
-            <button class="add-btn" onclick="addToCart('PS1002A MAX', 14150)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-PS1202A MAX Party.png" alt="YV-PS1002A Party">
-            <h3>YV-PS1002A Party</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 10" Dual</div>
-                <div class="mini-spec"><span>🔋</span> 12V DC</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>RGB Party Lights & TWS</li><li>Equalizer Bass & Treble Control</li><li>Mic Wired/Wireless & Guitar</li><li>Wheels for Easy Mobility</li></ul>
-            </div>
-            <div class="price">₹12,350</div>
-            <button class="add-btn" onclick="addToCart('PS1002A Party', 12350)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-PS1202A MAX Party.png" alt="YV-PS0802A Party">
-            <h3>YV-PS0802A Party</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 8" Dual</div>
-                <div class="mini-spec"><span>🎀</span> Pink Ed.</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>RGB Party Lights & TWS</li><li>Equalizer Bass & Treble Control</li><li>Mic Wired/Wireless & Guitar</li><li>Wheels for Easy Mobility</li></ul>
-            </div>
-            <div class="price">₹11,250</div>
-            <button class="add-btn" onclick="addToCart('PS0802A Party', 11250)">Add to Cart</button>
-        </div>
-        
-        <div class="card product-card">
-            <img src="YV-TS1501A Trolley.png" alt="YV-TS1501A Trolley">
-            <h3>YV-TS1501A Trolley</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 15" Spkr</div>
-                <div class="mini-spec"><span>🧳</span> Trolley</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
-            </div>
-            <div class="price">₹12,500</div>
-            <button class="add-btn" onclick="addToCart('TS1501A Trolley', 12500)">Add to Cart</button>
-        </div>
-        
-        <div class="card product-card">
-            <img src="YV-TS1501A Trolley.png" alt="YV-TS1201A Trolley">
-            <h3>YV-TS1201A Trolley</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 15" Spkr</div>
-                <div class="mini-spec"><span>🧳</span> Trolley</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
-            </div>
-            <div class="price">₹11,250</div>
-            <button class="add-btn" onclick="addToCart('TS1201A Trolley', 11250)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-TS1501A Trolley.png" alt="YV-TS1201AF Trolley">
-            <h3>YV-TS1201AF Trolley</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 15" Spkr</div>
-                <div class="mini-spec"><span>🧳</span> Trolley</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
-            </div>
-            <div class="price">₹11,650</div>
-            <button class="add-btn" onclick="addToCart('TS1201AF Trolley', 11650)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-TS1501A Trolley.png" alt="YV-TS1501AF Trolley">
-            <h3>YV-TS1501AF Trolley</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>🔊</span> 15" Spkr</div>
-                <div class="mini-spec"><span>🧳</span> Trolley</div>
-            </div>
-            <div class="feature-list">
-                <p><strong>Features</strong></p>
-                <ul><li>EQ Bass & Treble | Guitar Play</li><li>1 Wired & 1 Wireless Mic</li><li>RGB Lights | TWS Connectivity</li><li>Handles & Wheels for Portability</li></ul>
-            </div>
-            <div class="price">₹12,500</div>
-            <button class="add-btn" onclick="addToCart('TS1501AF Trolley', 12500)">Add to Cart</button>
-        </div>
-    </div>
-
-    <h2 id="soundbars" class="section-title">YV Soundbars</h2>
-    <div class="grid">
-        <div class="card product-card">
-            <img src="soundbar-w-woofer.png" alt="YV-SBS6004A-WL">
-            <h3>YV-SBS6004A-WL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 120W+120W</div>
-                <div class="mini-spec"><span>🔊</span> W/ Woofer</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹8,450</div>
-            <button class="add-btn" onclick="addToCart('SBS6004A-WL W/Woofer', 8450)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="no-woofer.png" alt="YV-TSB5004A">
-            <h3>YV-TSB5004A</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 50W Output</div>
-                <div class="mini-spec"><span>🎵</span> Standalone</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹5,000</div>
-            <button class="add-btn" onclick="addToCart('TSB5004A Standalone', 5000)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="soundbar-w-woofer.png" alt="YV-SBS8006A-WL">
-            <h3>YV-SBS8006A-WL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 160W+160W</div>
-                <div class="mini-spec"><span>🔊</span> W/ Woofer</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹10,150</div>
-            <button class="add-btn" onclick="addToCart('SBS8006A-WL W/Woofer', 10150)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="soundbar-w-woofer.png" alt="YV-SBS5004A">
-            <h3>YV-SBS5004A</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 100W+100W</div>
-                <div class="mini-spec"><span>🔊</span> W/ Woofer</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹7,350</div>
-            <button class="add-btn" onclick="addToCart('SBS5004A W/Woofer', 7350)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="no-woofer.png" alt="YV-TSB8006A-WL">
-            <h3>YV-TSB8006A-WL</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 80W Output</div>
-                <div class="mini-spec"><span>🎵</span> Standalone</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹6,200</div>
-            <button class="add-btn" onclick="addToCart('TSB8006A-WL Standalone', 6200)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="no-woofer.png" alt="YV-TSB6004A">
-            <h3>YV-TSB6004A</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 60W Output</div>
-                <div class="mini-spec"><span>🎵</span> Standalone</div>
-            </div>
-            <div class="feature-list">
-                <ul><li>Media Volume Control</li><li>USB, AUX, LED Display</li><li>Optical In, HDMI ARC</li></ul>
-            </div>
-            <div class="price">₹5,000</div>
-            <button class="add-btn" onclick="addToCart('TSB6004A Standalone', 5000)">Add to Cart</button>
-        </div>
-    </div>
-
-    <h2 id="cooktops" class="section-title">Appliances</h2>
-    <div class="grid">
-        
-        <div class="card product-card">
-            <img src="YV-EK01IND 2000W.png" alt="YV-EK01IND">
-            <h3>YV-EK01IND</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 2000W</div>
-                <div class="mini-spec"><span>👆</span> Touch/Btn</div>
-            </div>
-            <div class="feature-list">
-                <ul>
-                    <li>Type: Induction Cooktop</li>
-                    <li>Features: Digital Display, Multi-Cooking Modes</li>
-                    <li>Safety: Overheat Protection</li>
-                </ul>
-            </div>
-            <div class="price">₹3,750</div>
-            <button class="add-btn" onclick="addToCart('EK01IND 2000W', 3750)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-EK07IND-1 1600W.png" alt="YV-EK07IND-1">
-            <h3>YV-EK07IND-1</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 1600W</div>
-                <div class="mini-spec"><span>🔘</span> Button</div>
-            </div>
-            <div class="feature-list">
-                <ul>
-                    <li>Type: Induction Cooktop</li>
-                    <li>Features: Preset Indian Menus</li>
-                    <li>Safety: Auto Power Off</li>
-                </ul>
-            </div>
-            <div class="price">₹3,380</div>
-            <button class="add-btn" onclick="addToCart('EK07IND-1 1600W', 3380)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-EK04INF-1 2000W.png" alt="YV-EK04INF-1">
-            <h3>YV-EK04INF-1</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 2000W</div>
-                <div class="mini-spec"><span>🔥</span> Infrared</div>
-            </div>
-            <div class="feature-list">
-                <ul>
-                    <li>Compatibility: Works with ALL Utensils</li>
-                    <li>Control: Smart Touch Panel</li>
-                    <li>Features: Variable Temp Control, Easy Clean</li>
-                </ul>
-            </div>
-            <div class="price">₹3,525</div>
-            <button class="add-btn" onclick="addToCart('EK04INF-1 2000W', 3525)">Add to Cart</button>
-        </div>
-
-        <div class="card product-card">
-            <img src="YV-EK08IND-2 1600W.png" alt="YV-EK08IND-2">
-            <h3>YV-EK08IND-2</h3>
-            <div class="specs-grid">
-                <div class="mini-spec"><span>⚡</span> 1600W</div>
-                <div class="mini-spec"><span>👆</span> Touch</div>
-            </div>
-            <div class="feature-list">
-                <ul>
-                    <li>Type: Compact Induction Cooktop</li>
-                    <li>Features: Sleek Glass Design, Timer Function</li>
-                    <li>Safety: Spill-proof, Child Lock</li>
-                </ul>
-            </div>
-            <div class="price">₹3,380</div>
-            <button class="add-btn" onclick="addToCart('EK08IND-2 1600W', 3380)">Add to Cart</button>
-        </div>
-
-    </div>
-
-    <div id="checkout-modal">
-        <div class="modal-content">
-            <h2 style="margin-top:0; border-bottom: 3px solid var(--gold); padding-bottom: 10px; text-transform: uppercase;">GST Invoice & Delivery</h2>
-            
-            <div id="cart-items-list" style="margin: 15px 0;"></div>
-            
-            <div class="invoice-details">
-                <div class="summary-row"><span>Cart Subtotal:</span> <span id="cart-subtotal">₹0</span></div>
-                <div class="summary-row"><span>CGST (9%):</span> <span id="cart-cgst">₹0</span></div>
-                <div class="summary-row"><span>SGST (9%):</span> <span id="cart-sgst">₹0</span></div>
-                <div class="total-row"><span>Grand Total:</span> <span id="grand-total">₹0</span></div>
-            </div>
-
-            <p class="cod-badge">💸 PAYMENT: CASH ON DELIVERY (COD)</p>
-            
-            <input type="text" id="cust-name" placeholder="Full Name">
-            <input type="text" id="cust-phone" placeholder="Phone Number">
-            <input type="text" id="addr-line1" placeholder="Address No.">
-            <input type="text" id="addr-landmark" placeholder="Landmark">
-            <input type="text" id="addr-pincode" placeholder="Pincode">
-            
-            <div class="warning-text">⚠️ Order will only be processed after you click "Send" on WhatsApp!</div>
-            
-            <button class="add-btn" style="margin-top: 20px;" onclick="sendWhatsApp()">PLACE COD ORDER VIA WHATSAPP</button>
-            <button class="add-btn" style="margin-top: 10px; background: transparent; border: 1px solid #444; color: #888;" onclick="closeCheckout()">BACK TO STORE</button>
-        </div>
-    </div>
-
-    <footer>
-        <p style="color: var(--gold); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: 2px;">Heena Electronics Pvt Ltd</p>
-        <p>Est. 2017 | Factory Direct Electronics</p>
-        <p>📍 37-38 Ambika Industrial Estate, Saroli, Surat</p>
-        <p style="margin-top: 20px; font-size: 12px; border-top: 1px solid #333; padding-top: 20px;">© 2026 YV.india. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        let cart = [];
-
-        // Back to top button visibility
-        window.onscroll = function() {
-            let btn = document.getElementById("backToTop");
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-            }
-        };
-
-        function showToast(msg) {
-            let x = document.getElementById("toast");
-            x.innerText = msg; 
-            x.className = "show";
-            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-        }
-
-        function updateCartCount() {
-            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cart-count').innerText = totalItems;
-        }
-
-        function addToCart(name, price) {
-            let existingItem = cart.find(item => item.name === name);
-            
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({ 
-                    id: Date.now() + Math.random(), 
-                    name: name, 
-                    price: price,
-                    quantity: 1 
-                });
-            }
-            
-            updateCartCount();
-            showToast(`${name} added!`);
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            updateCartCount();
-            updateSummary();
-            if (cart.length === 0) closeCheckout();
-        }
-
-        function openCheckout() {
-            if (cart.length === 0) { showToast("Your cart is empty!"); return; }
-            updateSummary();
-            document.getElementById('checkout-modal').style.display = 'block';
-        }
-
-        function closeCheckout() { 
-            document.getElementById('checkout-modal').style.display = 'none'; 
-        }
-
-        function updateSummary() {
-            const list = document.getElementById('cart-items-list');
-            list.innerHTML = "";
-            let subtotal = 0;
-            
-            cart.forEach(item => {
-                let itemTotal = item.price * item.quantity;
-                list.innerHTML += `
-                <div class="cart-item-row">
-                    <span>${item.name} <strong style="color:var(--gold);">x${item.quantity}</strong></span>
-                    <span style="color:var(--text);">₹${itemTotal} 
-                        <button style="color:#ff4d4d; background:none; border:none; cursor:pointer; font-weight:bold; margin-left:10px; padding:0 5px;" onclick="removeFromCart(${item.id})">X</button>
-                    </span>
-                </div>`;
-                subtotal += itemTotal;
-            });
-
-            let cgst = subtotal * 0.09;
-            let sgst = subtotal * 0.09;
-            let grandTotal = subtotal + cgst + sgst;
-
-            document.getElementById('cart-subtotal').innerText = "₹" + subtotal.toFixed(2);
-            document.getElementById('cart-cgst').innerText = "₹" + cgst.toFixed(2);
-            document.getElementById('cart-sgst').innerText = "₹" + sgst.toFixed(2);
-            document.getElementById('grand-total').innerText = "₹" + grandTotal.toFixed(2);
-        }
-
-        function sendWhatsApp() {
-            const name = document.getElementById('cust-name').value;
-            const phone = document.getElementById('cust-phone').value;
-            const line1 = document.getElementById('addr-line1').value;
-            const land = document.getElementById('addr-landmark').value;
-            const pin = document.getElementById('addr-pincode').value;
-            
-            if(!name || !phone || !line1 || !pin) { 
-                showToast("⚠️ Please fill your Name, Phone, and Address!"); 
-                return; 
-            }
-            
-            let itemsList = cart.map(i => `${i.name} (x${i.quantity})`).join("%0A");
-            
-            let message = `*NEW COD ORDER - YV.india*%0A%0A` +
-                          `*Customer:* ${name}%0A` +
-                          `*Phone:* ${phone}%0A` +
-                          `*Delivery to:* ${line1}, ${land}, Surat - ${pin}%0A%0A` +
-                          `*📦 Order Details:*%0A` +
-                          `${itemsList}%0A%0A` +
-                          `*🧾 Billing Breakdown:*%0A` +
-                          `Subtotal: ${document.getElementById('cart-subtotal').innerText}%0A` +
-                          `CGST (9%): ${document.getElementById('cart-cgst').innerText}%0A` +
-                          `SGST (9%): ${document.getElementById('cart-sgst').innerText}%0A` +
-                          `*GRAND TOTAL: ${document.getElementById('grand-total').innerText}*%0A%0A` +
-                          `_Awaiting dispatch from Saroli Factory._`;
-            
-            window.open(`https://wa.me/919327678853?text=${message}`, '_blank');
-            cart = []; 
-            updateCartCount();
-            closeCheckout();
-        }
-    </script>
 </body>
 </html>
